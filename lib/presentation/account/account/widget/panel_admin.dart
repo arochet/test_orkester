@@ -10,7 +10,7 @@ class PanelAdmin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PanelList(
-      title: 'PanelDevelopper',
+      title: 'PanelAdmin',
       list: [
         ItemPanelList(
           title: 'Localisation',
@@ -25,7 +25,7 @@ class PanelAdmin extends StatelessWidget {
           icon: Icons.view_day,
           onTap: () {
             printDev();
-            context.router.push(LocationListRoute());
+            context.router.push(WeatherDataListRoute());
           },
         ),
       ],

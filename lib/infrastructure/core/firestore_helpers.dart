@@ -20,5 +20,6 @@ extension FirestoreX on FirebaseFirestore {
   }
 
   CollectionReference get locationCollection => collection('location');
+CollectionReference get weatherDataCollection => collection('weatherData');
 //insert-collection
 }

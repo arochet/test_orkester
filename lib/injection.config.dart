@@ -19,9 +19,11 @@ import 'package:meteo_okester/INFRASTRUCTURE/auth/auth_fake_repository.dart'
     as _i4;
 import 'package:meteo_okester/INFRASTRUCTURE/auth/auth_repository.dart' as _i3;
 import 'package:meteo_okester/INFRASTRUCTURE/core/firebase_injectable_module.dart'
-    as _i10;
+    as _i11;
 import 'package:meteo_okester/INFRASTRUCTURE/location/location_repository.dart'
     as _i9;
+import 'package:meteo_okester/INFRASTRUCTURE/weatherdata/weatherdata_repository.dart'
+    as _i10;
 
 const String _test = 'test';
 const String _dev = 'dev';
@@ -53,6 +55,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => firebaseInjectableModule.googleSignIn);
     gh.lazySingleton<_i9.ILocationRepository>(
         () => _i9.LocationRepository(gh<_i6.FirebaseFirestore>()));
+    gh.lazySingleton<_i10.IWeatherDataRepository>(
+        () => _i10.WeatherDataRepository(gh<_i6.FirebaseFirestore>()));
     gh.lazySingleton<_i3.AuthRepository>(
       () => _i3.FirebaseAuthFacade(
         gh<_i5.FirebaseAuth>(),
@@ -69,4 +73,4 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$FirebaseInjectableModule extends _i10.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i11.FirebaseInjectableModule {}
