@@ -3,10 +3,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/main_scaffold.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/show_component_file.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/spacing.dart';
+import 'package:meteo_okester/PRESENTATION/core/_core/app_widget.dart';
 
 @RoutePage()
 class ColorsPage extends StatelessWidget {

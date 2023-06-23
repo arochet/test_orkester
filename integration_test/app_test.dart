@@ -1,7 +1,7 @@
-import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
-import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
-import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
-import 'package:base_de_projet/injection.dart';
+import 'package:meteo_okester/DOMAIN/auth/user_data.dart';
+import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
+import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
+import 'package:meteo_okester/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

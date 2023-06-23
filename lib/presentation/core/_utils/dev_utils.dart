@@ -1,4 +1,4 @@
-import 'package:base_de_projet/injection.dart';
+import 'package:meteo_okester/injection.dart';
 
 //Cette fonction affiche le nom de la fonction appelante des repositories
 printDev() {

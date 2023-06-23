@@ -1,6 +1,6 @@
 {
-    "name": "base_de_projet",
-    "short_name": "base_de_projet",
+    "name": "meteo_okester",
+    "short_name": "meteo_okester",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

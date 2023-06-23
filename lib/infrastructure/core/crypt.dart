@@ -1,4 +1,4 @@
-import 'package:base_de_projet/config_reader.dart';
+import 'package:meteo_okester/config_reader.dart';
 import 'package:encrypt/encrypt.dart';
 
 /// Retourne une chaine cryptée<br>

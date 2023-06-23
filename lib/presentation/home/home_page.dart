@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/app_async.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
-import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
-import 'package:base_de_projet/providers.dart';
+import 'package:meteo_okester/DOMAIN/auth/user_data.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/app_async.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/show_component_file.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/show_environment_widget.dart';
+import 'package:meteo_okester/PRESENTATION/core/_core/app_widget.dart';
+import 'package:meteo_okester/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:meteo_okester/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

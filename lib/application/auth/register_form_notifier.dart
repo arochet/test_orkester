@@ -1,9 +1,9 @@
-import 'package:base_de_projet/DOMAIN/auth/failure/auth_failure.dart';
-import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
-import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
-import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
-import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
-import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:meteo_okester/DOMAIN/auth/failure/auth_failure.dart';
+import 'package:meteo_okester/DOMAIN/auth/user_data.dart';
+import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
+import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
+import 'package:meteo_okester/INFRASTRUCTURE/auth/auth_repository.dart';
+import 'package:meteo_okester/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
