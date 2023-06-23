@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/PRESENTATION/account/account/components/components_page.dart';
 import 'package:meteo_okester/PRESENTATION/account/account/text_style/text_style.dart';
 import 'package:meteo_okester/PRESENTATION/account/account/account_page.dart';
@@ -18,7 +19,10 @@ import 'package:flutter/material.dart';
 import '../../account/account/buttons/buttons.dart';
 import '../../account/account/colors/colors.dart';
 import '../../account/account/utils/utils_page.dart';
-import 'package:meteo_okester/PRESENTATION/search/search_page.dart'; //insert-import
+import 'package:meteo_okester/PRESENTATION/search/search_page.dart';
+import 'package:meteo_okester/PRESENTATION/./location/location_add/location_add_page.dart';
+import 'package:meteo_okester/PRESENTATION/./location/location_list/location_list_page.dart';
+import 'package:meteo_okester/PRESENTATION/./location/location_view/location_view_page.dart'; //insert-import
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -104,6 +108,17 @@ class AppRouter extends _$AppRouter {
           path: '/utils-route',
           page: UtilsRoute.page,
         ),
-        //insert-route
+        AutoRoute(
+          path: '/location-add-route',
+          page: LocationAddRoute.page,
+        ),
+        AutoRoute(
+          path: '/location-list-route',
+          page: LocationListRoute.page,
+        ),
+        AutoRoute(
+          path: '/location-view-route',
+          page: LocationViewRoute.page,
+        ), //insert-route
       ];
 }

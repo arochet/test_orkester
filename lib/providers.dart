@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:meteo_okester/APPLICATION/account/modify_form_notifier.dart';
 import 'package:meteo_okester/APPLICATION/auth/auth_notifier.dart';
 import 'package:meteo_okester/APPLICATION/account/new_password_form_notifier.dart';
@@ -5,12 +6,17 @@ import 'package:meteo_okester/APPLICATION/account/reauthenticate_form_notifier.d
 import 'package:meteo_okester/APPLICATION/auth/register_form_notifier.dart';
 import 'package:meteo_okester/APPLICATION/auth/reset_password_notifier.dart';
 import 'package:meteo_okester/APPLICATION/auth/sign_in_form_notifier.dart';
+import 'package:meteo_okester/APPLICATION/location/add_location_form_notifier.dart';
 import 'package:meteo_okester/DOMAIN/auth/user_auth.dart';
 import 'package:meteo_okester/DOMAIN/auth/user_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
+import 'package:meteo_okester/INFRASTRUCTURE/location/location_repository.dart';
 
 import 'DOMAIN/core/errors.dart';
+import 'DOMAIN/core/value_objects.dart';
+import 'DOMAIN/location/location.dart';
+import 'DOMAIN/location/location_failure.dart';
 import 'INFRASTRUCTURE/auth/auth_repository.dart';
 import 'injection.dart';
 
@@ -85,6 +91,21 @@ final currentUserData = FutureProvider.autoDispose<UserData?>((ref) async {
   else
     return user;
 });
+
+//LOCATION
+
+final locationRepositoryProvider = Provider<ILocationRepository>((ref) => getIt<ILocationRepository>());
+
+final locationFormNotifierProvider =
+    StateNotifierProvider.autoDispose<LocationFormNotifier, AddLocationFormData>(
+  (ref) => LocationFormNotifier(ref.watch(locationRepositoryProvider)),
+);
+
+final allLocationProvider = StreamProvider.autoDispose<Either<LocationFailure, List<Location>>>(
+    (ref) => ref.watch(locationRepositoryProvider).watch());
+
+final oneLocationProvider = FutureProvider.autoDispose.family<Either<LocationFailure, Location>, UniqueId>(
+    (ref, id) => ref.watch(locationRepositoryProvider).watchWithId(id));
 
 //insert-provider
 //Ne pas supprimer la balise ci-dessus

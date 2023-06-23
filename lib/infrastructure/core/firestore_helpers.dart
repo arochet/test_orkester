@@ -19,5 +19,6 @@ extension FirestoreX on FirebaseFirestore {
     return FirebaseFirestore.instance.collection('user').doc(idPlayer.getOrCrash());
   }
 
-  //insert-collection
+  CollectionReference get locationCollection => collection('location');
+//insert-collection
 }
