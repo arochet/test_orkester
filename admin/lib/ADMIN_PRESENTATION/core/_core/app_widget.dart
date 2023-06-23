@@ -26,7 +26,7 @@ class AppWidget extends StatelessWidget {
     );
 
     return MaterialApp.router(
-      title: 'Base de Projet',
+      title: 'Météo Orkester',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         //COLORS
