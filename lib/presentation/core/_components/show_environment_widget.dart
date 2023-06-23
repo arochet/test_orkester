@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:meteo_okester/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:meteo_okester/injection.dart';
 import 'package:meteo_okester/providers.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
+
+import '../_core/router.dart';
 
 final showPrintDEV = StateProvider<bool>((ref) => false);
 final showWidgetRefresh = StateProvider<bool>((ref) => false);
@@ -40,6 +43,7 @@ class ShowEnvironment extends ConsumerWidget {
                   child: TextButton(
                     onPressed: () {
                       printDev();
+                      context.router.push(LocationListRoute());
                     },
                     child: Text("Raccourcis"),
                   ),

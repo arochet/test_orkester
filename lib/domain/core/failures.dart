@@ -38,4 +38,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidEnum({
     required T failedValue,
   }) = InvalidEnum<T>;
+  const factory ValueFailure.invalidCoordinate({
+    required T failedValue,
+  }) = InvalidCoordinate<T>;
 }

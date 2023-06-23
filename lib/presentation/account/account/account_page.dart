@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:meteo_okester/DOMAIN/auth/user_data.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
+import 'package:meteo_okester/PRESENTATION/account/account/widget/panel_admin.dart';
 import 'package:meteo_okester/PRESENTATION/account/account/widget/panel_developper.dart';
 import 'package:meteo_okester/PRESENTATION/account/account/widget/panel_modify_mdp_delete_account.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/show_component_file.dart';
@@ -75,6 +76,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             PanelModifyMdpDeleteAccount(typeAccount: typeAccount),
             //PANEL DEVELOPPEMENT
             if (env == Environment.dev) ...[DisplayTitle(title: 'Developpement'), PanelDevelopper()],
+            //PANEL ADMIN
+            if (env == Environment.dev) ...[DisplayTitle(title: 'Admin'), PanelAdmin()],
             SpaceH10(),
             //BOUTON SE DECONNECTER
             ButtonLogOut(),

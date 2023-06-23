@@ -7,6 +7,7 @@ import 'package:meteo_okester/DOMAIN/location/location.dart';
 import 'package:meteo_okester/DOMAIN/location/location_failure.dart';
 import 'package:meteo_okester/DOMAIN/location/value_objects.dart';
 import 'package:meteo_okester/INFRASTRUCTURE/location/location_repository.dart';
+import 'package:meteo_okester/PRESENTATION/core/_utils/dev_utils.dart';
 part 'add_location_form_notifier.freezed.dart';
 
 @freezed
@@ -36,14 +37,18 @@ class LocationFormNotifier extends StateNotifier<AddLocationFormData> {
         authFailureOrSuccessOption: none());
   }
 
-  latitudeChanged(double param) {
+  latitudeChanged(String param) {
+    double? value = double.tryParse(param);
     state = state.copyWith(
-        location: state.location.copyWith(latitude: Coordinate(param)), authFailureOrSuccessOption: none());
+        location: state.location.copyWith(latitude: Coordinate(value ?? -1)),
+        authFailureOrSuccessOption: none());
   }
 
-  longitudeChanged(double param) {
+  longitudeChanged(String param) {
+    double? value = double.tryParse(param);
     state = state.copyWith(
-        location: state.location.copyWith(longitude: Coordinate(param)), authFailureOrSuccessOption: none());
+        location: state.location.copyWith(longitude: Coordinate(value ?? -1)),
+        authFailureOrSuccessOption: none());
   }
 
   placeChanged(String param) {
@@ -53,11 +58,14 @@ class LocationFormNotifier extends StateNotifier<AddLocationFormData> {
 //insert-changed
 
   addLocationPressed() async {
+    printDev();
     Either<LocationFailure, Unit>? failureOrSuccess;
 
+    final isLatValid = state.location.latitude.isValid();
+    final isLongValid = state.location.longitude.isValid();
     final isplaceValid = state.location.place.isValid();
-//insert-valid-params
-    if (false /* insert-valid-condition */ || isplaceValid) {
+    //insert-valid-params
+    if (isLatValid && isLongValid && isplaceValid) {
       state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
 
       failureOrSuccess = await this._iLocationRepository.create(state.location);

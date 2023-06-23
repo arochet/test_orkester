@@ -1,8 +1,10 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:meteo_okester/APPLICATION/auth/register_form_notifier.dart';
+import 'package:meteo_okester/DOMAIN/core/failures.dart';
 import 'package:meteo_okester/PRESENTATION/auth/widget/flushbar_auth_failure.dart';
 import 'package:meteo_okester/APPLICATION/location/add_location_form_notifier.dart';
 import 'package:meteo_okester/PRESENTATION/core/_core/router.dart';
+import 'package:meteo_okester/PRESENTATION/core/_utils/dev_utils.dart';
 
 import 'package:meteo_okester/providers.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +58,51 @@ class LocationForm extends ConsumerWidget {
       child: ListView(padding: const EdgeInsets.all(18), shrinkWrap: true, children: [
         const SizedBox(height: 8),
         TextFormField(
-          decoration: const InputDecoration(labelText: 'place'),
+          decoration: const InputDecoration(labelText: 'Latitude'),
+          autocorrect: false,
+          textInputAction: TextInputAction.next,
+          onChanged: (value) {
+            ref.read(locationFormNotifierProvider.notifier).latitudeChanged(value);
+          },
+          validator: (_) {
+            final notifier = ref.read(locationFormNotifierProvider);
+            if (notifier.showErrorMessages) {
+              return notifier.location.latitude.value.fold(
+                (f) => f.maybeMap(
+                  invalidCoordinate: (_) => 'latitude invalide',
+                  orElse: () => null,
+                ),
+                (_) => null,
+              );
+            } else
+              return null;
+          },
+        ),
+        const SizedBox(height: 8),
+        TextFormField(
+          decoration: const InputDecoration(labelText: 'Longitude'),
+          autocorrect: false,
+          textInputAction: TextInputAction.next,
+          onChanged: (value) {
+            ref.read(locationFormNotifierProvider.notifier).longitudeChanged(value);
+          },
+          validator: (_) {
+            final notifier = ref.read(locationFormNotifierProvider);
+            if (notifier.showErrorMessages) {
+              return notifier.location.longitude.value.fold(
+                (ValueFailure<double> f) => f.maybeMap(
+                  invalidCoordinate: (_) => 'longitude invalide',
+                  orElse: () => null,
+                ),
+                (_) => null,
+              );
+            } else
+              return null;
+          },
+        ),
+        const SizedBox(height: 8),
+        TextFormField(
+          decoration: const InputDecoration(labelText: 'Place'),
           autocorrect: false,
           textInputAction: TextInputAction.next,
           onChanged: (value) {
@@ -83,6 +129,7 @@ class LocationForm extends ConsumerWidget {
             width: 200,
             child: ElevatedButton(
               onPressed: () {
+                printDev();
                 ref.read(locationFormNotifierProvider.notifier).addLocationPressed();
               },
               child: const Text("Ajout"),
