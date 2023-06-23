@@ -4,7 +4,7 @@
      android:name="android.permission.INTERNET" />
 
    <application
-        android:label="Base de projet"
+        android:label="Météo ORKESTER"
         android:icon="@mipmap/ic_launcher"
         android:name="androidx.multidex.MultiDexApplication">
         

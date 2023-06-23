@@ -23,7 +23,7 @@ class HomePage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Base de projet",
+              Text("Météo ORKESTER",
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(color: colorpanel(50))),
               ElevatedButton(
                 onPressed: () {
