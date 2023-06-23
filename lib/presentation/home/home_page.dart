@@ -23,41 +23,11 @@ class HomePage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Météo ORKESTER",
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: colorpanel(50))),
-              ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("Primary"),
-                style: null,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("Warning"),
-                style: Theme.of(context).extension<AppThemeExtention>()?.buttonWarning,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("Remove"),
-                style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("Help"),
-                style: Theme.of(context).extension<AppThemeExtention>()?.buttonHelp,
-              ),
-              AppAsync(
+              /* AppAsync(
                 ref.watch(currentUserData),
                 builder: (UserData? p0) => Text(p0?.email?.getOrCrash() ?? 'no user'),
                 loading: Text('...'),
-              ),
+              ), */
             ],
           ),
         ),

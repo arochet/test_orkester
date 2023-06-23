@@ -13,6 +13,7 @@ class MainNavigationPage extends StatelessWidget {
 
   final listRoute = [
     HomeRoute(),
+    SearchRoute(),
     AccountRoute(),
   ];
 
@@ -25,9 +26,14 @@ class MainNavigationPage extends StatelessWidget {
         "id": 0,
       },
       {
+        "title": 'Recherche',
+        "icon": Icons.search,
+        "id": 1,
+      },
+      {
         "title": AppLocalizations.of(context)!.compte,
         "icon": Icons.person_rounded,
-        "id": 1,
+        "id": 2,
       },
     ];
     return CheckUserConnected(

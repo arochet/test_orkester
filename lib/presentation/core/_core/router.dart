@@ -18,7 +18,7 @@ import 'package:flutter/material.dart';
 import '../../account/account/buttons/buttons.dart';
 import '../../account/account/colors/colors.dart';
 import '../../account/account/utils/utils_page.dart';
-//insert-import
+import 'package:meteo_okester/PRESENTATION/search/search_page.dart'; //insert-import
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -37,6 +37,10 @@ class AppRouter extends _$AppRouter {
             AutoRoute(
               path: 'home',
               page: HomeRoute.page,
+            ),
+            AutoRoute(
+              path: 'search-route',
+              page: SearchRoute.page,
             ),
             AutoRoute(
               path: 'account',
