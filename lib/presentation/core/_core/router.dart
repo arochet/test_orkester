@@ -20,9 +20,8 @@ import '../../account/account/buttons/buttons.dart';
 import '../../account/account/colors/colors.dart';
 import '../../account/account/utils/utils_page.dart';
 import 'package:meteo_okester/PRESENTATION/search/search_page.dart';
-import 'package:meteo_okester/PRESENTATION/./location/location_add/location_add_page.dart';
-import 'package:meteo_okester/PRESENTATION/./location/location_list/location_list_page.dart';
-import 'package:meteo_okester/PRESENTATION/./location/location_view/location_view_page.dart';
+import 'package:meteo_okester/PRESENTATION/account/account/location/location_add/location_add_page.dart';
+import 'package:meteo_okester/PRESENTATION/account/account/location/location_list/location_list_page.dart';
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -115,10 +114,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/location-list-route',
           page: LocationListRoute.page,
-        ),
-        AutoRoute(
-          path: '/location-view-route',
-          page: LocationViewRoute.page,
         ),
         //insert-route
       ];
