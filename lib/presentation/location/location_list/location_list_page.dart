@@ -38,8 +38,8 @@ class LocationListPage extends ConsumerWidget {
                           child: Text("Ajout"),
                         ),
                         ...listLocation
-                            .map<Widget>(
-                                (AppLocation locationObj) => PanelLocationView(location: locationObj))
+                            .map<Widget>((AppLocation locationObj) =>
+                                PanelLocationView(location: locationObj, dateSearch: null))
                             .toList()
                       ])),
             )));

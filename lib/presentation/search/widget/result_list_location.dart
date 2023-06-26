@@ -37,7 +37,10 @@ class ResultListLocation extends ConsumerWidget {
                         String _place = location.place.getOrCrash();
                         return _place.toLowerCase().contains((placeSearch ?? '').toLowerCase());
                       })
-                      .map<Widget>((AppLocation locationObj) => PanelLocationView(location: locationObj))
+                      .map<Widget>((AppLocation locationObj) => PanelLocationView(
+                            location: locationObj,
+                            dateSearch: dateSearch,
+                          ))
                       .toList())),
         ),
       ),

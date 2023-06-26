@@ -1,17 +1,20 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:flutter/material.dart';
+import 'package:meteo_okester/DOMAIN/location/weatherdata.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/show_component_file.dart';
 
 import 'package:meteo_okester/PRESENTATION/core/_components/spacing.dart';
 import 'package:meteo_okester/PRESENTATION/core/_core/app_widget.dart';
+import 'package:meteo_okester/PRESENTATION/core/_utils/date_utils.dart';
 import 'package:meteo_okester/providers.dart';
 
 import 'panel_weather_data.dart';
 
 class PanelLocationView extends ConsumerWidget {
   final AppLocation location;
-  const PanelLocationView({Key? key, required this.location}) : super(key: key);
+  final DateTime? dateSearch;
+  const PanelLocationView({Key? key, required this.location, required this.dateSearch}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,8 +38,12 @@ class PanelLocationView extends ConsumerWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: location.listWeatherData
+                      .where((data) {
+                        if (dateSearch == null) return true;
+                        return data.date.isSameDayAs(dateSearch!);
+                      })
                       .map(
-                        (e) => PanelWeatherData(weatherData: e),
+                        (WeatherData data) => PanelWeatherData(weatherData: data),
                       )
                       .toList(),
                 ),
