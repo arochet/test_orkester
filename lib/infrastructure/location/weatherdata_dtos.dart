@@ -19,6 +19,8 @@ abstract class WeatherDataDTO implements _$WeatherDataDTO {
     @JsonKey(ignore: true) String? id,
     required int date,
     required String type,
+    required double temperature,
+    required double windSpeed,
   }) = _WeatherDataDTO;
 
   factory WeatherDataDTO.fromDomain(WeatherData obj) {
@@ -26,6 +28,8 @@ abstract class WeatherDataDTO implements _$WeatherDataDTO {
       id: obj.id.getOrCrash(),
       date: obj.date.millisecondsSinceEpoch,
       type: obj.type.getOrCrash().toShortString(),
+      temperature: obj.temperature.getOrCrash(),
+      windSpeed: obj.windSpeed,
     );
   }
 
@@ -34,6 +38,8 @@ abstract class WeatherDataDTO implements _$WeatherDataDTO {
       id: UniqueId.fromUniqueString(id!),
       date: DateTime.fromMillisecondsSinceEpoch(date),
       type: TypeWeather.fromString(type),
+      temperature: Temperature(temperature),
+      windSpeed: windSpeed,
     );
   }
 

@@ -17,11 +17,15 @@ abstract class WeatherData with _$WeatherData {
     required UniqueId id,
     required DateTime date,
     required TypeWeather type,
+    required Temperature temperature,
+    required double windSpeed,
   }) = _WeatherData;
 
   factory WeatherData.empty() => WeatherData(
         id: UniqueId(),
         date: DateTime.now(),
         type: TypeWeather(TypeWeatherState.sun),
+        temperature: Temperature(0),
+        windSpeed: 0,
       );
 }

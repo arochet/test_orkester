@@ -30,6 +30,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +46,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +62,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -78,6 +81,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -94,6 +98,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,6 +115,7 @@ mixin _$ValueFailure<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -242,6 +248,7 @@ class _$InvalidPhoneNumber<T>
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return invalidPhoneNumber(failedValue);
   }
@@ -260,6 +267,7 @@ class _$InvalidPhoneNumber<T>
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return invalidPhoneNumber?.call(failedValue);
   }
@@ -278,6 +286,7 @@ class _$InvalidPhoneNumber<T>
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -302,6 +311,7 @@ class _$InvalidPhoneNumber<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return invalidPhoneNumber(this);
   }
@@ -321,6 +331,7 @@ class _$InvalidPhoneNumber<T>
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return invalidPhoneNumber?.call(this);
   }
@@ -340,6 +351,7 @@ class _$InvalidPhoneNumber<T>
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -450,6 +462,7 @@ class _$InvalidEmail<T>
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return invalidEmail(failedValue);
   }
@@ -468,6 +481,7 @@ class _$InvalidEmail<T>
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -486,6 +500,7 @@ class _$InvalidEmail<T>
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -510,6 +525,7 @@ class _$InvalidEmail<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return invalidEmail(this);
   }
@@ -529,6 +545,7 @@ class _$InvalidEmail<T>
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return invalidEmail?.call(this);
   }
@@ -548,6 +565,7 @@ class _$InvalidEmail<T>
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -658,6 +676,7 @@ class _$ShortPassword<T>
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return shortPassword(failedValue);
   }
@@ -676,6 +695,7 @@ class _$ShortPassword<T>
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -694,6 +714,7 @@ class _$ShortPassword<T>
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -718,6 +739,7 @@ class _$ShortPassword<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return shortPassword(this);
   }
@@ -737,6 +759,7 @@ class _$ShortPassword<T>
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return shortPassword?.call(this);
   }
@@ -756,6 +779,7 @@ class _$ShortPassword<T>
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -869,6 +893,7 @@ class _$ConfirmationPasswordFail<T>
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return confirmationPasswordFail(failedValue);
   }
@@ -887,6 +912,7 @@ class _$ConfirmationPasswordFail<T>
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return confirmationPasswordFail?.call(failedValue);
   }
@@ -905,6 +931,7 @@ class _$ConfirmationPasswordFail<T>
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (confirmationPasswordFail != null) {
@@ -929,6 +956,7 @@ class _$ConfirmationPasswordFail<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return confirmationPasswordFail(this);
   }
@@ -948,6 +976,7 @@ class _$ConfirmationPasswordFail<T>
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return confirmationPasswordFail?.call(this);
   }
@@ -967,6 +996,7 @@ class _$ConfirmationPasswordFail<T>
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (confirmationPasswordFail != null) {
@@ -1087,6 +1117,7 @@ class _$ExceedingLenght<T>
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return exceedingLenght(failedValue, max);
   }
@@ -1105,6 +1136,7 @@ class _$ExceedingLenght<T>
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return exceedingLenght?.call(failedValue, max);
   }
@@ -1123,6 +1155,7 @@ class _$ExceedingLenght<T>
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (exceedingLenght != null) {
@@ -1147,6 +1180,7 @@ class _$ExceedingLenght<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return exceedingLenght(this);
   }
@@ -1166,6 +1200,7 @@ class _$ExceedingLenght<T>
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return exceedingLenght?.call(this);
   }
@@ -1185,6 +1220,7 @@ class _$ExceedingLenght<T>
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (exceedingLenght != null) {
@@ -1309,6 +1345,7 @@ class _$ExceedingLenghtOrNull<T>
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return exceedingLenghtOrNull(failedValue, max);
   }
@@ -1327,6 +1364,7 @@ class _$ExceedingLenghtOrNull<T>
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return exceedingLenghtOrNull?.call(failedValue, max);
   }
@@ -1345,6 +1383,7 @@ class _$ExceedingLenghtOrNull<T>
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (exceedingLenghtOrNull != null) {
@@ -1369,6 +1408,7 @@ class _$ExceedingLenghtOrNull<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return exceedingLenghtOrNull(this);
   }
@@ -1388,6 +1428,7 @@ class _$ExceedingLenghtOrNull<T>
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return exceedingLenghtOrNull?.call(this);
   }
@@ -1407,6 +1448,7 @@ class _$ExceedingLenghtOrNull<T>
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (exceedingLenghtOrNull != null) {
@@ -1517,6 +1559,7 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return multiline(failedValue);
   }
@@ -1535,6 +1578,7 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return multiline?.call(failedValue);
   }
@@ -1553,6 +1597,7 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -1577,6 +1622,7 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return multiline(this);
   }
@@ -1596,6 +1642,7 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return multiline?.call(this);
   }
@@ -1615,6 +1662,7 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (multiline != null) {
@@ -1720,6 +1768,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return empty(failedValue);
   }
@@ -1738,6 +1787,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return empty?.call(failedValue);
   }
@@ -1756,6 +1806,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -1780,6 +1831,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return empty(this);
   }
@@ -1799,6 +1851,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return empty?.call(this);
   }
@@ -1818,6 +1871,7 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -1935,6 +1989,7 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return listTooLong(failedValue, maxLength);
   }
@@ -1953,6 +2008,7 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return listTooLong?.call(failedValue, maxLength);
   }
@@ -1971,6 +2027,7 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (listTooLong != null) {
@@ -1995,6 +2052,7 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return listTooLong(this);
   }
@@ -2014,6 +2072,7 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return listTooLong?.call(this);
   }
@@ -2033,6 +2092,7 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (listTooLong != null) {
@@ -2143,6 +2203,7 @@ class _$InvalidEnum<T> with DiagnosticableTreeMixin implements InvalidEnum<T> {
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return invalidEnum(failedValue);
   }
@@ -2161,6 +2222,7 @@ class _$InvalidEnum<T> with DiagnosticableTreeMixin implements InvalidEnum<T> {
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return invalidEnum?.call(failedValue);
   }
@@ -2179,6 +2241,7 @@ class _$InvalidEnum<T> with DiagnosticableTreeMixin implements InvalidEnum<T> {
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidEnum != null) {
@@ -2203,6 +2266,7 @@ class _$InvalidEnum<T> with DiagnosticableTreeMixin implements InvalidEnum<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return invalidEnum(this);
   }
@@ -2222,6 +2286,7 @@ class _$InvalidEnum<T> with DiagnosticableTreeMixin implements InvalidEnum<T> {
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return invalidEnum?.call(this);
   }
@@ -2241,6 +2306,7 @@ class _$InvalidEnum<T> with DiagnosticableTreeMixin implements InvalidEnum<T> {
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidEnum != null) {
@@ -2351,6 +2417,7 @@ class _$InvalidCoordinate<T>
     required TResult Function(T failedValue, int maxLength) listTooLong,
     required TResult Function(T failedValue) invalidEnum,
     required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
   }) {
     return invalidCoordinate(failedValue);
   }
@@ -2369,6 +2436,7 @@ class _$InvalidCoordinate<T>
     TResult? Function(T failedValue, int maxLength)? listTooLong,
     TResult? Function(T failedValue)? invalidEnum,
     TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
   }) {
     return invalidCoordinate?.call(failedValue);
   }
@@ -2387,6 +2455,7 @@ class _$InvalidCoordinate<T>
     TResult Function(T failedValue, int maxLength)? listTooLong,
     TResult Function(T failedValue)? invalidEnum,
     TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidCoordinate != null) {
@@ -2411,6 +2480,7 @@ class _$InvalidCoordinate<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
     required TResult Function(InvalidEnum<T> value) invalidEnum,
     required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
   }) {
     return invalidCoordinate(this);
   }
@@ -2430,6 +2500,7 @@ class _$InvalidCoordinate<T>
     TResult? Function(ListTooLong<T> value)? listTooLong,
     TResult? Function(InvalidEnum<T> value)? invalidEnum,
     TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
   }) {
     return invalidCoordinate?.call(this);
   }
@@ -2449,6 +2520,7 @@ class _$InvalidCoordinate<T>
     TResult Function(ListTooLong<T> value)? listTooLong,
     TResult Function(InvalidEnum<T> value)? invalidEnum,
     TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
     required TResult orElse(),
   }) {
     if (invalidCoordinate != null) {
@@ -2467,5 +2539,220 @@ abstract class InvalidCoordinate<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$$InvalidCoordinateCopyWith<T, _$InvalidCoordinate<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidTemperatureCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$InvalidTemperatureCopyWith(_$InvalidTemperature<T> value,
+          $Res Function(_$InvalidTemperature<T>) then) =
+      __$$InvalidTemperatureCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$InvalidTemperatureCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidTemperature<T>>
+    implements _$$InvalidTemperatureCopyWith<T, $Res> {
+  __$$InvalidTemperatureCopyWithImpl(_$InvalidTemperature<T> _value,
+      $Res Function(_$InvalidTemperature<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$InvalidTemperature<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidTemperature<T>
+    with DiagnosticableTreeMixin
+    implements InvalidTemperature<T> {
+  const _$InvalidTemperature({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.invalidTemperature(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.invalidTemperature'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidTemperature<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidTemperatureCopyWith<T, _$InvalidTemperature<T>> get copyWith =>
+      __$$InvalidTemperatureCopyWithImpl<T, _$InvalidTemperature<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidPhoneNumber,
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) confirmationPasswordFail,
+    required TResult Function(T failedValue, int max) exceedingLenght,
+    required TResult Function(T failedValue, int max) exceedingLenghtOrNull,
+    required TResult Function(T failedValue) multiline,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue, int maxLength) listTooLong,
+    required TResult Function(T failedValue) invalidEnum,
+    required TResult Function(T failedValue) invalidCoordinate,
+    required TResult Function(T failedValue) invalidTemperature,
+  }) {
+    return invalidTemperature(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? invalidPhoneNumber,
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? confirmationPasswordFail,
+    TResult? Function(T failedValue, int max)? exceedingLenght,
+    TResult? Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult? Function(T failedValue)? multiline,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue, int maxLength)? listTooLong,
+    TResult? Function(T failedValue)? invalidEnum,
+    TResult? Function(T failedValue)? invalidCoordinate,
+    TResult? Function(T failedValue)? invalidTemperature,
+  }) {
+    return invalidTemperature?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+    TResult Function(T failedValue)? invalidEnum,
+    TResult Function(T failedValue)? invalidCoordinate,
+    TResult Function(T failedValue)? invalidTemperature,
+    required TResult orElse(),
+  }) {
+    if (invalidTemperature != null) {
+      return invalidTemperature(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ConfirmationPasswordFail<T> value)
+        confirmationPasswordFail,
+    required TResult Function(ExceedingLenght<T> value) exceedingLenght,
+    required TResult Function(ExceedingLenghtOrNull<T> value)
+        exceedingLenghtOrNull,
+    required TResult Function(Multiline<T> value) multiline,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ListTooLong<T> value) listTooLong,
+    required TResult Function(InvalidEnum<T> value) invalidEnum,
+    required TResult Function(InvalidCoordinate<T> value) invalidCoordinate,
+    required TResult Function(InvalidTemperature<T> value) invalidTemperature,
+  }) {
+    return invalidTemperature(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult? Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult? Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult? Function(Multiline<T> value)? multiline,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ListTooLong<T> value)? listTooLong,
+    TResult? Function(InvalidEnum<T> value)? invalidEnum,
+    TResult? Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult? Function(InvalidTemperature<T> value)? invalidTemperature,
+  }) {
+    return invalidTemperature?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+    TResult Function(InvalidEnum<T> value)? invalidEnum,
+    TResult Function(InvalidCoordinate<T> value)? invalidCoordinate,
+    TResult Function(InvalidTemperature<T> value)? invalidTemperature,
+    required TResult orElse(),
+  }) {
+    if (invalidTemperature != null) {
+      return invalidTemperature(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidTemperature<T> implements ValueFailure<T> {
+  const factory InvalidTemperature({required final T failedValue}) =
+      _$InvalidTemperature<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$InvalidTemperatureCopyWith<T, _$InvalidTemperature<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

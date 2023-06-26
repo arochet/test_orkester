@@ -1,3 +1,5 @@
+import 'package:meteo_okester/DOMAIN/location/app_location.dart';
+
 import 'widget/panel_location_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:meteo_okester/PRESENTATION/core/_core/router.dart';
@@ -36,7 +38,8 @@ class LocationListPage extends ConsumerWidget {
                           child: Text("Ajout"),
                         ),
                         ...listLocation
-                            .map<Widget>((locationObj) => PanelLocationView(location: locationObj))
+                            .map<Widget>(
+                                (AppLocation locationObj) => PanelLocationView(location: locationObj))
                             .toList()
                       ])),
             )));

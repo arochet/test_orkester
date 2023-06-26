@@ -13,3 +13,14 @@ Either<ValueFailure<double>, double> validateCoordinate(double coordinate) {
     );
   }
 }
+
+/// Une coordonnée géographique est valide si elle est positive
+Either<ValueFailure<double>, double> validateTemperature(double coordinate) {
+  if (coordinate > -273.15) {
+    return right(coordinate);
+  } else {
+    return left(
+      ValueFailure.invalidTemperature(failedValue: coordinate),
+    );
+  }
+}

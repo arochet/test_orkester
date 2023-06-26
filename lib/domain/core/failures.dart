@@ -41,4 +41,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.invalidCoordinate({
     required T failedValue,
   }) = InvalidCoordinate<T>;
+  const factory ValueFailure.invalidTemperature({
+    required T failedValue,
+  }) = InvalidTemperature<T>;
 }

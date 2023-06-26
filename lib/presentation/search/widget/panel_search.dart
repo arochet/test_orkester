@@ -65,7 +65,7 @@ class _PanelSearchState extends ConsumerState<PanelSearch> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                         "${date != null ? AppDateUtils.formatDate(date, 'dd-mm-yy hh:mm') : 'Définir un date'}",
-                        style: Theme.of(context).textTheme.headlineSmall),
+                        style: Theme.of(context).textTheme.bodyLarge),
                   )),
                 ),
               ),

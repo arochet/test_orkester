@@ -123,16 +123,44 @@ class LocationRepository implements ILocationRepository {
         listWeatherData))) /* .onError((e, stackTrace) => left(const LocationFailure.unexpected())) */;
   }
 
-  List<WeatherData> get listWeatherData => [
-        WeatherData(
-          id: UniqueId.fromUniqueString('0'),
-          date: DateTime(2023, 1, 3),
-          type: TypeWeather(TypeWeatherState.sun),
-        ),
-        WeatherData(
-          id: UniqueId.fromUniqueString('1'),
-          date: DateTime(2023, 1, 3),
-          type: TypeWeather(TypeWeatherState.sun),
-        )
-      ];
+  List<WeatherData> get listWeatherData {
+    DateTime now = DateTime.now();
+    return [
+      WeatherData(
+        id: UniqueId.fromUniqueString('0'),
+        date: DateTime(2023, now.month, now.day - 2),
+        type: TypeWeather(TypeWeatherState.sun),
+        temperature: Temperature(23),
+        windSpeed: 14,
+      ),
+      WeatherData(
+        id: UniqueId.fromUniqueString('0'),
+        date: DateTime(2023, now.month, now.day - 1),
+        type: TypeWeather(TypeWeatherState.thinning),
+        temperature: Temperature(20),
+        windSpeed: 14,
+      ),
+      WeatherData(
+        id: UniqueId.fromUniqueString('0'),
+        date: DateTime(2023, now.month, now.day),
+        type: TypeWeather(TypeWeatherState.rain),
+        temperature: Temperature(24),
+        windSpeed: 18,
+      ),
+      WeatherData(
+        id: UniqueId.fromUniqueString('0'),
+        date: DateTime(2023, now.month, now.day + 1),
+        type: TypeWeather(TypeWeatherState.sun),
+        temperature: Temperature(25),
+        windSpeed: 17,
+      ),
+      WeatherData(
+        id: UniqueId.fromUniqueString('1'),
+        date: DateTime(2023, now.month, now.day + 2),
+        type: TypeWeather(TypeWeatherState.rain),
+        temperature: Temperature(28),
+        windSpeed: 15,
+      )
+    ];
+  }
 }

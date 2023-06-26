@@ -19,6 +19,8 @@ mixin _$WeatherData {
   UniqueId get id => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   TypeWeather get type => throw _privateConstructorUsedError;
+  Temperature get temperature => throw _privateConstructorUsedError;
+  double get windSpeed => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WeatherDataCopyWith<WeatherData> get copyWith =>
@@ -31,7 +33,12 @@ abstract class $WeatherDataCopyWith<$Res> {
           WeatherData value, $Res Function(WeatherData) then) =
       _$WeatherDataCopyWithImpl<$Res, WeatherData>;
   @useResult
-  $Res call({UniqueId id, DateTime date, TypeWeather type});
+  $Res call(
+      {UniqueId id,
+      DateTime date,
+      TypeWeather type,
+      Temperature temperature,
+      double windSpeed});
 }
 
 /// @nodoc
@@ -50,6 +57,8 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
     Object? id = null,
     Object? date = null,
     Object? type = null,
+    Object? temperature = null,
+    Object? windSpeed = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -64,6 +73,14 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TypeWeather,
+      temperature: null == temperature
+          ? _value.temperature
+          : temperature // ignore: cast_nullable_to_non_nullable
+              as Temperature,
+      windSpeed: null == windSpeed
+          ? _value.windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -76,7 +93,12 @@ abstract class _$$_WeatherDataCopyWith<$Res>
       __$$_WeatherDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id, DateTime date, TypeWeather type});
+  $Res call(
+      {UniqueId id,
+      DateTime date,
+      TypeWeather type,
+      Temperature temperature,
+      double windSpeed});
 }
 
 /// @nodoc
@@ -93,6 +115,8 @@ class __$$_WeatherDataCopyWithImpl<$Res>
     Object? id = null,
     Object? date = null,
     Object? type = null,
+    Object? temperature = null,
+    Object? windSpeed = null,
   }) {
     return _then(_$_WeatherData(
       id: null == id
@@ -107,6 +131,14 @@ class __$$_WeatherDataCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TypeWeather,
+      temperature: null == temperature
+          ? _value.temperature
+          : temperature // ignore: cast_nullable_to_non_nullable
+              as Temperature,
+      windSpeed: null == windSpeed
+          ? _value.windSpeed
+          : windSpeed // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -115,7 +147,11 @@ class __$$_WeatherDataCopyWithImpl<$Res>
 
 class _$_WeatherData extends _WeatherData {
   const _$_WeatherData(
-      {required this.id, required this.date, required this.type})
+      {required this.id,
+      required this.date,
+      required this.type,
+      required this.temperature,
+      required this.windSpeed})
       : super._();
 
   @override
@@ -124,10 +160,14 @@ class _$_WeatherData extends _WeatherData {
   final DateTime date;
   @override
   final TypeWeather type;
+  @override
+  final Temperature temperature;
+  @override
+  final double windSpeed;
 
   @override
   String toString() {
-    return 'WeatherData(id: $id, date: $date, type: $type)';
+    return 'WeatherData(id: $id, date: $date, type: $type, temperature: $temperature, windSpeed: $windSpeed)';
   }
 
   @override
@@ -137,11 +177,16 @@ class _$_WeatherData extends _WeatherData {
             other is _$_WeatherData &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.temperature, temperature) ||
+                other.temperature == temperature) &&
+            (identical(other.windSpeed, windSpeed) ||
+                other.windSpeed == windSpeed));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, date, type);
+  int get hashCode =>
+      Object.hash(runtimeType, id, date, type, temperature, windSpeed);
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +199,9 @@ abstract class _WeatherData extends WeatherData {
   const factory _WeatherData(
       {required final UniqueId id,
       required final DateTime date,
-      required final TypeWeather type}) = _$_WeatherData;
+      required final TypeWeather type,
+      required final Temperature temperature,
+      required final double windSpeed}) = _$_WeatherData;
   const _WeatherData._() : super._();
 
   @override
@@ -163,6 +210,10 @@ abstract class _WeatherData extends WeatherData {
   DateTime get date;
   @override
   TypeWeather get type;
+  @override
+  Temperature get temperature;
+  @override
+  double get windSpeed;
   @override
   @JsonKey(ignore: true)
   _$$_WeatherDataCopyWith<_$_WeatherData> get copyWith =>

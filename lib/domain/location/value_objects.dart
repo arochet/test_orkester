@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meteo_okester/DOMAIN/core/failures.dart';
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
@@ -28,6 +29,19 @@ extension ParseToSringTA on TypeWeatherState {
   String toDisplayString() {
     return this.toString().substring(17);
   }
+
+  IconData toIcon() {
+    switch (this) {
+      case TypeWeatherState.sun:
+        return Icons.sunny;
+      case TypeWeatherState.thinning:
+        return Icons.wb_cloudy;
+      case TypeWeatherState.rain:
+        return Icons.cloud;
+      case TypeWeatherState.fail:
+        return Icons.error;
+    }
+  }
 }
 
 /// Type de compte (email, google, échec)<br>
@@ -55,4 +69,16 @@ class TypeWeather extends ValueObject<TypeWeatherState> {
   }
 
   const TypeWeather._(this.value);
+}
+
+/// Température en degrés celcius
+@immutable
+class Temperature extends ValueObject<double> {
+  @override
+  final Either<ValueFailure<double>, double> value;
+
+  factory Temperature(double coordinate) {
+    return Temperature._(validateCoordinate(coordinate));
+  }
+  const Temperature._(this.value);
 }
