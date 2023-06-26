@@ -20,14 +20,6 @@ class PanelAdmin extends StatelessWidget {
             context.router.push(LocationListRoute());
           },
         ),
-        ItemPanelList(
-          title: 'Donnée météo',
-          icon: Icons.view_day,
-          onTap: () {
-            printDev();
-            context.router.push(WeatherDataListRoute());
-          },
-        ),
       ],
     );
   }

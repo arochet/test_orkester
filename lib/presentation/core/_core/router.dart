@@ -23,9 +23,6 @@ import 'package:meteo_okester/PRESENTATION/search/search_page.dart';
 import 'package:meteo_okester/PRESENTATION/./location/location_add/location_add_page.dart';
 import 'package:meteo_okester/PRESENTATION/./location/location_list/location_list_page.dart';
 import 'package:meteo_okester/PRESENTATION/./location/location_view/location_view_page.dart';
-import 'package:meteo_okester/PRESENTATION/weatherdata/weather_data_add/weatherdata_add_page.dart';
-import 'package:meteo_okester/PRESENTATION/weatherdata/weather_data_list/weatherdata_list_page.dart';
-import 'package:meteo_okester/PRESENTATION/weatherdata/weather_data_view/weatherdata_view_page.dart'; //insert-import
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -123,17 +120,6 @@ class AppRouter extends _$AppRouter {
           path: '/location-view-route',
           page: LocationViewRoute.page,
         ),
-        AutoRoute(
-          path: '/WeatherData-add-route',
-          page: WeatherDataAddRoute.page,
-        ),
-        AutoRoute(
-          path: '/WeatherData-list-route',
-          page: WeatherDataListRoute.page,
-        ),
-        AutoRoute(
-          path: '/WeatherData-view-route',
-          page: WeatherDataViewRoute.page,
-        ), //insert-route
+        //insert-route
       ];
 }

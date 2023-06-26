@@ -157,28 +157,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ColorsPage(),
       );
     },
-    WeatherDataListRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const WeatherDataListPage(),
-      );
-    },
-    WeatherDataViewRoute.name: (routeData) {
-      final args = routeData.argsAs<WeatherDataViewRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WeatherDataViewPage(
-          id: args.id,
-          key: args.key,
-        ),
-      );
-    },
-    WeatherDataAddRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const WeatherDataAddPage(),
-      );
-    },
   };
 }
 
@@ -549,72 +527,6 @@ class ColorsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ColorsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [WeatherDataListPage]
-class WeatherDataListRoute extends PageRouteInfo<void> {
-  const WeatherDataListRoute({List<PageRouteInfo>? children})
-      : super(
-          WeatherDataListRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'WeatherDataListRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [WeatherDataViewPage]
-class WeatherDataViewRoute extends PageRouteInfo<WeatherDataViewRouteArgs> {
-  WeatherDataViewRoute({
-    required UniqueId id,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          WeatherDataViewRoute.name,
-          args: WeatherDataViewRouteArgs(
-            id: id,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'WeatherDataViewRoute';
-
-  static const PageInfo<WeatherDataViewRouteArgs> page =
-      PageInfo<WeatherDataViewRouteArgs>(name);
-}
-
-class WeatherDataViewRouteArgs {
-  const WeatherDataViewRouteArgs({
-    required this.id,
-    this.key,
-  });
-
-  final UniqueId id;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'WeatherDataViewRouteArgs{id: $id, key: $key}';
-  }
-}
-
-/// generated route for
-/// [WeatherDataAddPage]
-class WeatherDataAddRoute extends PageRouteInfo<void> {
-  const WeatherDataAddRoute({List<PageRouteInfo>? children})
-      : super(
-          WeatherDataAddRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'WeatherDataAddRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

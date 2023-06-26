@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddLocationFormData {
-  InvalidType get location => throw _privateConstructorUsedError;
+  AppLocation get location => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<LocationFailure, Unit>> get authFailureOrSuccessOption =>
@@ -34,10 +34,12 @@ abstract class $AddLocationFormDataCopyWith<$Res> {
       _$AddLocationFormDataCopyWithImpl<$Res, AddLocationFormData>;
   @useResult
   $Res call(
-      {InvalidType location,
+      {AppLocation location,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<LocationFailure, Unit>> authFailureOrSuccessOption});
+
+  $AppLocationCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -53,16 +55,16 @@ class _$AddLocationFormDataCopyWithImpl<$Res, $Val extends AddLocationFormData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? location = freezed,
+    Object? location = null,
     Object? showErrorMessages = null,
     Object? isSubmitting = null,
     Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      location: freezed == location
+      location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as InvalidType,
+              as AppLocation,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -77,6 +79,14 @@ class _$AddLocationFormDataCopyWithImpl<$Res, $Val extends AddLocationFormData>
               as Option<Either<LocationFailure, Unit>>,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppLocationCopyWith<$Res> get location {
+    return $AppLocationCopyWith<$Res>(_value.location, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -88,10 +98,13 @@ abstract class _$$_AddLocationFormDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {InvalidType location,
+      {AppLocation location,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<LocationFailure, Unit>> authFailureOrSuccessOption});
+
+  @override
+  $AppLocationCopyWith<$Res> get location;
 }
 
 /// @nodoc
@@ -105,16 +118,16 @@ class __$$_AddLocationFormDataCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? location = freezed,
+    Object? location = null,
     Object? showErrorMessages = null,
     Object? isSubmitting = null,
     Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_$_AddLocationFormData(
-      location: freezed == location
+      location: null == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as InvalidType,
+              as AppLocation,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -141,7 +154,7 @@ class _$_AddLocationFormData implements _AddLocationFormData {
       required this.authFailureOrSuccessOption});
 
   @override
-  final InvalidType location;
+  final AppLocation location;
   @override
   final bool showErrorMessages;
   @override
@@ -159,7 +172,8 @@ class _$_AddLocationFormData implements _AddLocationFormData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddLocationFormData &&
-            const DeepCollectionEquality().equals(other.location, location) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 other.showErrorMessages == showErrorMessages) &&
             (identical(other.isSubmitting, isSubmitting) ||
@@ -171,12 +185,8 @@ class _$_AddLocationFormData implements _AddLocationFormData {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(location),
-      showErrorMessages,
-      isSubmitting,
-      authFailureOrSuccessOption);
+  int get hashCode => Object.hash(runtimeType, location, showErrorMessages,
+      isSubmitting, authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -188,14 +198,14 @@ class _$_AddLocationFormData implements _AddLocationFormData {
 
 abstract class _AddLocationFormData implements AddLocationFormData {
   const factory _AddLocationFormData(
-      {required final InvalidType location,
+      {required final AppLocation location,
       required final bool showErrorMessages,
       required final bool isSubmitting,
       required final Option<Either<LocationFailure, Unit>>
           authFailureOrSuccessOption}) = _$_AddLocationFormData;
 
   @override
-  InvalidType get location;
+  AppLocation get location;
   @override
   bool get showErrorMessages;
   @override
