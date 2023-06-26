@@ -11,6 +11,7 @@ _$_AppLocationDTO _$$_AppLocationDTOFromJson(Map<String, dynamic> json) =>
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
       place: json['place'] as String,
+      listWeatherData: json['listWeatherData'] as String,
     );
 
 Map<String, dynamic> _$$_AppLocationDTOToJson(_$_AppLocationDTO instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$_AppLocationDTOToJson(_$_AppLocationDTO instance) =>
       'latitude': instance.latitude,
       'longitude': instance.longitude,
       'place': instance.place,
+      'listWeatherData': instance.listWeatherData,
     };

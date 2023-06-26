@@ -7,20 +7,17 @@ import 'package:meteo_okester/APPLICATION/auth/register_form_notifier.dart';
 import 'package:meteo_okester/APPLICATION/auth/reset_password_notifier.dart';
 import 'package:meteo_okester/APPLICATION/auth/sign_in_form_notifier.dart';
 import 'package:meteo_okester/APPLICATION/location/add_location_form_notifier.dart';
-import 'package:meteo_okester/APPLICATION/weatherdata/add_weatherdata_form_notifier.dart';
 import 'package:meteo_okester/DOMAIN/auth/user_auth.dart';
 import 'package:meteo_okester/DOMAIN/auth/user_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meteo_okester/INFRASTRUCTURE/location/location_repository.dart';
-import 'package:meteo_okester/INFRASTRUCTURE/weatherdata/weatherdata_repository.dart';
 
 import 'DOMAIN/core/errors.dart';
 import 'DOMAIN/core/value_objects.dart';
 import 'DOMAIN/location/app_location.dart';
 import 'DOMAIN/location/location_failure.dart';
-import 'DOMAIN/weatherdata/weatherdata.dart';
-import 'DOMAIN/weatherdata/weatherdata_failure.dart';
+import 'DOMAIN/location/weatherdata.dart';
 import 'INFRASTRUCTURE/auth/auth_repository.dart';
 import 'injection.dart';
 
@@ -110,22 +107,6 @@ final allLocationProvider = StreamProvider.autoDispose<Either<LocationFailure, L
 
 final oneLocationProvider = FutureProvider.autoDispose.family<Either<LocationFailure, AppLocation>, UniqueId>(
     (ref, id) => ref.watch(locationRepositoryProvider).watchWithId(id));
-
-//WEATHER DATA
-final weatherDataRepositoryProvider =
-    Provider<IWeatherDataRepository>((ref) => getIt<IWeatherDataRepository>());
-
-final weatherDataFormNotifierProvider =
-    StateNotifierProvider.autoDispose<WeatherDataFormNotifier, AddWeatherDataFormData>(
-  (ref) => WeatherDataFormNotifier(ref.watch(weatherDataRepositoryProvider)),
-);
-
-final allWeatherDataProvider = StreamProvider.autoDispose<Either<WeatherDataFailure, List<WeatherData>>>(
-    (ref) => ref.watch(weatherDataRepositoryProvider).watch());
-
-final oneWeatherDataProvider = FutureProvider.autoDispose
-    .family<Either<WeatherDataFailure, WeatherData>, UniqueId>(
-        (ref, id) => ref.watch(weatherDataRepositoryProvider).watchWithId(id));
 
 //insert-provider
 //Ne pas supprimer la balise ci-dessus

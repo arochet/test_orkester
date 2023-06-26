@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/location/app_location.dart';
@@ -16,6 +18,7 @@ abstract class AppLocationDTO implements _$AppLocationDTO {
     required double latitude,
     required double longitude,
     required String place,
+    required String listWeatherData,
   }) = _AppLocationDTO;
 
   factory AppLocationDTO.fromDomain(AppLocation obj) {
@@ -24,16 +27,17 @@ abstract class AppLocationDTO implements _$AppLocationDTO {
       latitude: obj.latitude.getOrCrash(),
       longitude: obj.longitude.getOrCrash(),
       place: obj.place.getOrCrash(),
+      listWeatherData: jsonEncode(obj.listWeatherData.map((e) => jsonEncode(e))),
     );
   }
 
   AppLocation toDomain() {
     return AppLocation(
-      id: UniqueId.fromUniqueString(id!),
-      latitude: Coordinate(latitude),
-      longitude: Coordinate(longitude),
-      place: Nom(place),
-    );
+        id: UniqueId.fromUniqueString(id!),
+        latitude: Coordinate(latitude),
+        longitude: Coordinate(longitude),
+        place: Nom(place),
+        listWeatherData: jsonDecode(listWeatherData));
   }
 
   factory AppLocationDTO.fromJson(Map<String, dynamic> json) => _$AppLocationDTOFromJson(json);

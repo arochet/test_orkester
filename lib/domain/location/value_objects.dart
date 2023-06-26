@@ -16,3 +16,43 @@ class Coordinate extends ValueObject<double> {
   }
   const Coordinate._(this.value);
 }
+
+/// Type de compte (email, google, échec)
+enum TypeWeatherState { sun, thinning, rain, fail }
+
+extension ParseToSringTA on TypeWeatherState {
+  String toShortString() {
+    return this.toString().toLowerCase();
+  }
+
+  String toDisplayString() {
+    return this.toString().substring(17);
+  }
+}
+
+/// Type de compte (email, google, échec)<br>
+/// Type avec TypeAccountState
+@immutable
+class TypeWeather extends ValueObject<TypeWeatherState> {
+  @override
+  final Either<ValueFailure<TypeWeatherState>, TypeWeatherState> value;
+
+  factory TypeWeather(TypeWeatherState input) {
+    return TypeWeather._(right(input));
+  }
+
+  factory TypeWeather.fromString(String input) {
+    try {
+      final TypeWeatherState? state = TypeWeatherState.values.firstWhere((e) {
+        return e.toShortString() == input.toLowerCase();
+      });
+      if (state == null)
+        return TypeWeather._(left(ValueFailure.invalidEnum(failedValue: TypeWeatherState.fail)));
+      return TypeWeather._(right(state));
+    } catch (e) {
+      return TypeWeather._(left(ValueFailure.invalidEnum(failedValue: TypeWeatherState.fail)));
+    }
+  }
+
+  const TypeWeather._(this.value);
+}

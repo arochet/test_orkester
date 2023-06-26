@@ -24,7 +24,6 @@ mixin _$WeatherDataDTO {
   String? get id => throw _privateConstructorUsedError;
   int get date => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  String get idLocation => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,11 +37,7 @@ abstract class $WeatherDataDTOCopyWith<$Res> {
           WeatherDataDTO value, $Res Function(WeatherDataDTO) then) =
       _$WeatherDataDTOCopyWithImpl<$Res, WeatherDataDTO>;
   @useResult
-  $Res call(
-      {@JsonKey(ignore: true) String? id,
-      int date,
-      String type,
-      String idLocation});
+  $Res call({@JsonKey(ignore: true) String? id, int date, String type});
 }
 
 /// @nodoc
@@ -61,7 +56,6 @@ class _$WeatherDataDTOCopyWithImpl<$Res, $Val extends WeatherDataDTO>
     Object? id = freezed,
     Object? date = null,
     Object? type = null,
-    Object? idLocation = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -76,10 +70,6 @@ class _$WeatherDataDTOCopyWithImpl<$Res, $Val extends WeatherDataDTO>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      idLocation: null == idLocation
-          ? _value.idLocation
-          : idLocation // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -92,11 +82,7 @@ abstract class _$$_WeatherDataDTOCopyWith<$Res>
       __$$_WeatherDataDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(ignore: true) String? id,
-      int date,
-      String type,
-      String idLocation});
+  $Res call({@JsonKey(ignore: true) String? id, int date, String type});
 }
 
 /// @nodoc
@@ -113,7 +99,6 @@ class __$$_WeatherDataDTOCopyWithImpl<$Res>
     Object? id = freezed,
     Object? date = null,
     Object? type = null,
-    Object? idLocation = null,
   }) {
     return _then(_$_WeatherDataDTO(
       id: freezed == id
@@ -128,10 +113,6 @@ class __$$_WeatherDataDTOCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      idLocation: null == idLocation
-          ? _value.idLocation
-          : idLocation // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -140,10 +121,7 @@ class __$$_WeatherDataDTOCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_WeatherDataDTO extends _WeatherDataDTO {
   const _$_WeatherDataDTO(
-      {@JsonKey(ignore: true) this.id,
-      required this.date,
-      required this.type,
-      required this.idLocation})
+      {@JsonKey(ignore: true) this.id, required this.date, required this.type})
       : super._();
 
   factory _$_WeatherDataDTO.fromJson(Map<String, dynamic> json) =>
@@ -156,12 +134,10 @@ class _$_WeatherDataDTO extends _WeatherDataDTO {
   final int date;
   @override
   final String type;
-  @override
-  final String idLocation;
 
   @override
   String toString() {
-    return 'WeatherDataDTO(id: $id, date: $date, type: $type, idLocation: $idLocation)';
+    return 'WeatherDataDTO(id: $id, date: $date, type: $type)';
   }
 
   @override
@@ -171,14 +147,12 @@ class _$_WeatherDataDTO extends _WeatherDataDTO {
             other is _$_WeatherDataDTO &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.idLocation, idLocation) ||
-                other.idLocation == idLocation));
+            (identical(other.type, type) || other.type == type));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, date, type, idLocation);
+  int get hashCode => Object.hash(runtimeType, id, date, type);
 
   @JsonKey(ignore: true)
   @override
@@ -198,8 +172,7 @@ abstract class _WeatherDataDTO extends WeatherDataDTO {
   const factory _WeatherDataDTO(
       {@JsonKey(ignore: true) final String? id,
       required final int date,
-      required final String type,
-      required final String idLocation}) = _$_WeatherDataDTO;
+      required final String type}) = _$_WeatherDataDTO;
   const _WeatherDataDTO._() : super._();
 
   factory _WeatherDataDTO.fromJson(Map<String, dynamic> json) =
@@ -212,8 +185,6 @@ abstract class _WeatherDataDTO extends WeatherDataDTO {
   int get date;
   @override
   String get type;
-  @override
-  String get idLocation;
   @override
   @JsonKey(ignore: true)
   _$$_WeatherDataDTOCopyWith<_$_WeatherDataDTO> get copyWith =>

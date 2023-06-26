@@ -20,6 +20,7 @@ mixin _$AppLocation {
   Coordinate get latitude => throw _privateConstructorUsedError;
   Coordinate get longitude => throw _privateConstructorUsedError;
   Nom get place => throw _privateConstructorUsedError;
+  List<WeatherData> get listWeatherData => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppLocationCopyWith<AppLocation> get copyWith =>
@@ -33,7 +34,11 @@ abstract class $AppLocationCopyWith<$Res> {
       _$AppLocationCopyWithImpl<$Res, AppLocation>;
   @useResult
   $Res call(
-      {UniqueId id, Coordinate latitude, Coordinate longitude, Nom place});
+      {UniqueId id,
+      Coordinate latitude,
+      Coordinate longitude,
+      Nom place,
+      List<WeatherData> listWeatherData});
 }
 
 /// @nodoc
@@ -53,6 +58,7 @@ class _$AppLocationCopyWithImpl<$Res, $Val extends AppLocation>
     Object? latitude = null,
     Object? longitude = null,
     Object? place = null,
+    Object? listWeatherData = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -71,6 +77,10 @@ class _$AppLocationCopyWithImpl<$Res, $Val extends AppLocation>
           ? _value.place
           : place // ignore: cast_nullable_to_non_nullable
               as Nom,
+      listWeatherData: null == listWeatherData
+          ? _value.listWeatherData
+          : listWeatherData // ignore: cast_nullable_to_non_nullable
+              as List<WeatherData>,
     ) as $Val);
   }
 }
@@ -84,7 +94,11 @@ abstract class _$$_AppLocationCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UniqueId id, Coordinate latitude, Coordinate longitude, Nom place});
+      {UniqueId id,
+      Coordinate latitude,
+      Coordinate longitude,
+      Nom place,
+      List<WeatherData> listWeatherData});
 }
 
 /// @nodoc
@@ -102,6 +116,7 @@ class __$$_AppLocationCopyWithImpl<$Res>
     Object? latitude = null,
     Object? longitude = null,
     Object? place = null,
+    Object? listWeatherData = null,
   }) {
     return _then(_$_AppLocation(
       id: null == id
@@ -120,6 +135,10 @@ class __$$_AppLocationCopyWithImpl<$Res>
           ? _value.place
           : place // ignore: cast_nullable_to_non_nullable
               as Nom,
+      listWeatherData: null == listWeatherData
+          ? _value._listWeatherData
+          : listWeatherData // ignore: cast_nullable_to_non_nullable
+              as List<WeatherData>,
     ));
   }
 }
@@ -131,8 +150,10 @@ class _$_AppLocation extends _AppLocation {
       {required this.id,
       required this.latitude,
       required this.longitude,
-      required this.place})
-      : super._();
+      required this.place,
+      required final List<WeatherData> listWeatherData})
+      : _listWeatherData = listWeatherData,
+        super._();
 
   @override
   final UniqueId id;
@@ -142,10 +163,17 @@ class _$_AppLocation extends _AppLocation {
   final Coordinate longitude;
   @override
   final Nom place;
+  final List<WeatherData> _listWeatherData;
+  @override
+  List<WeatherData> get listWeatherData {
+    if (_listWeatherData is EqualUnmodifiableListView) return _listWeatherData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listWeatherData);
+  }
 
   @override
   String toString() {
-    return 'AppLocation(id: $id, latitude: $latitude, longitude: $longitude, place: $place)';
+    return 'AppLocation(id: $id, latitude: $latitude, longitude: $longitude, place: $place, listWeatherData: $listWeatherData)';
   }
 
   @override
@@ -158,11 +186,14 @@ class _$_AppLocation extends _AppLocation {
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
                 other.longitude == longitude) &&
-            (identical(other.place, place) || other.place == place));
+            (identical(other.place, place) || other.place == place) &&
+            const DeepCollectionEquality()
+                .equals(other._listWeatherData, _listWeatherData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, latitude, longitude, place);
+  int get hashCode => Object.hash(runtimeType, id, latitude, longitude, place,
+      const DeepCollectionEquality().hash(_listWeatherData));
 
   @JsonKey(ignore: true)
   @override
@@ -176,7 +207,8 @@ abstract class _AppLocation extends AppLocation {
       {required final UniqueId id,
       required final Coordinate latitude,
       required final Coordinate longitude,
-      required final Nom place}) = _$_AppLocation;
+      required final Nom place,
+      required final List<WeatherData> listWeatherData}) = _$_AppLocation;
   const _AppLocation._() : super._();
 
   @override
@@ -187,6 +219,8 @@ abstract class _AppLocation extends AppLocation {
   Coordinate get longitude;
   @override
   Nom get place;
+  @override
+  List<WeatherData> get listWeatherData;
   @override
   @JsonKey(ignore: true)
   _$$_AppLocationCopyWith<_$_AppLocation> get copyWith =>

@@ -25,6 +25,7 @@ mixin _$AppLocationDTO {
   double get latitude => throw _privateConstructorUsedError;
   double get longitude => throw _privateConstructorUsedError;
   String get place => throw _privateConstructorUsedError;
+  String get listWeatherData => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,8 @@ abstract class $AppLocationDTOCopyWith<$Res> {
       {@JsonKey(ignore: true) String? id,
       double latitude,
       double longitude,
-      String place});
+      String place,
+      String listWeatherData});
 }
 
 /// @nodoc
@@ -62,6 +64,7 @@ class _$AppLocationDTOCopyWithImpl<$Res, $Val extends AppLocationDTO>
     Object? latitude = null,
     Object? longitude = null,
     Object? place = null,
+    Object? listWeatherData = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -80,6 +83,10 @@ class _$AppLocationDTOCopyWithImpl<$Res, $Val extends AppLocationDTO>
           ? _value.place
           : place // ignore: cast_nullable_to_non_nullable
               as String,
+      listWeatherData: null == listWeatherData
+          ? _value.listWeatherData
+          : listWeatherData // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -96,7 +103,8 @@ abstract class _$$_AppLocationDTOCopyWith<$Res>
       {@JsonKey(ignore: true) String? id,
       double latitude,
       double longitude,
-      String place});
+      String place,
+      String listWeatherData});
 }
 
 /// @nodoc
@@ -114,6 +122,7 @@ class __$$_AppLocationDTOCopyWithImpl<$Res>
     Object? latitude = null,
     Object? longitude = null,
     Object? place = null,
+    Object? listWeatherData = null,
   }) {
     return _then(_$_AppLocationDTO(
       id: freezed == id
@@ -132,6 +141,10 @@ class __$$_AppLocationDTOCopyWithImpl<$Res>
           ? _value.place
           : place // ignore: cast_nullable_to_non_nullable
               as String,
+      listWeatherData: null == listWeatherData
+          ? _value.listWeatherData
+          : listWeatherData // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -143,7 +156,8 @@ class _$_AppLocationDTO extends _AppLocationDTO {
       {@JsonKey(ignore: true) this.id,
       required this.latitude,
       required this.longitude,
-      required this.place})
+      required this.place,
+      required this.listWeatherData})
       : super._();
 
   factory _$_AppLocationDTO.fromJson(Map<String, dynamic> json) =>
@@ -158,10 +172,12 @@ class _$_AppLocationDTO extends _AppLocationDTO {
   final double longitude;
   @override
   final String place;
+  @override
+  final String listWeatherData;
 
   @override
   String toString() {
-    return 'AppLocationDTO(id: $id, latitude: $latitude, longitude: $longitude, place: $place)';
+    return 'AppLocationDTO(id: $id, latitude: $latitude, longitude: $longitude, place: $place, listWeatherData: $listWeatherData)';
   }
 
   @override
@@ -174,12 +190,15 @@ class _$_AppLocationDTO extends _AppLocationDTO {
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
                 other.longitude == longitude) &&
-            (identical(other.place, place) || other.place == place));
+            (identical(other.place, place) || other.place == place) &&
+            (identical(other.listWeatherData, listWeatherData) ||
+                other.listWeatherData == listWeatherData));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, latitude, longitude, place);
+  int get hashCode =>
+      Object.hash(runtimeType, id, latitude, longitude, place, listWeatherData);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +219,8 @@ abstract class _AppLocationDTO extends AppLocationDTO {
       {@JsonKey(ignore: true) final String? id,
       required final double latitude,
       required final double longitude,
-      required final String place}) = _$_AppLocationDTO;
+      required final String place,
+      required final String listWeatherData}) = _$_AppLocationDTO;
   const _AppLocationDTO._() : super._();
 
   factory _AppLocationDTO.fromJson(Map<String, dynamic> json) =
@@ -215,6 +235,8 @@ abstract class _AppLocationDTO extends AppLocationDTO {
   double get longitude;
   @override
   String get place;
+  @override
+  String get listWeatherData;
   @override
   @JsonKey(ignore: true)
   _$$_AppLocationDTOCopyWith<_$_AppLocationDTO> get copyWith =>
