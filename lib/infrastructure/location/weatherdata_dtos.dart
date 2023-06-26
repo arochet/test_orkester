@@ -1,4 +1,3 @@
-import 'package:location/location.dart';
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/location/app_location.dart';

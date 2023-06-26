@@ -24,7 +24,7 @@ class PanelWeatherData extends ConsumerWidget {
             children: [
               Icon(weatherData.type.getOrCrash().toIcon(), size: 25, color: Colors.white),
               SizedBox(height: 5),
-              Text("${AppDateUtils.formatDate(weatherData.date, 'dd MMM')}",
+              Text("${AppDateUtils.formatDate(weatherData.date, 'dd MMM HH')}h",
                   style: Theme.of(context).textTheme.bodyLarge),
               SizedBox(height: 10),
               Row(

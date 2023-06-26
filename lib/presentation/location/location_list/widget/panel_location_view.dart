@@ -12,12 +12,27 @@ import 'package:meteo_okester/providers.dart';
 import 'panel_weather_data.dart';
 
 class PanelLocationView extends ConsumerWidget {
-  final AppLocation location;
+  final AppLocation? location;
   final DateTime? dateSearch;
-  const PanelLocationView({Key? key, required this.location, required this.dateSearch}) : super(key: key);
+  final bool displayDeleteButton;
+  const PanelLocationView(
+      {Key? key, required this.location, required this.dateSearch, this.displayDeleteButton = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Cas ou il n'y a pas de ville à proximité
+    if (location == null)
+      return Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Text("Pas de ville à proximité", style: Theme.of(context).textTheme.bodyLarge),
+          ),
+        ),
+      );
+
+    // Vue météo d'une ville
     return ShowComponentFile(
       title: 'PanelLocationView',
       child: Card(
@@ -27,9 +42,9 @@ class PanelLocationView extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("${location.place.getOrCrash()}", style: Theme.of(context).textTheme.headlineSmall),
+              Text("${location!.place.getOrCrash()}", style: Theme.of(context).textTheme.headlineSmall),
               SpaceH10(),
-              Text("Coordinates (${location.latitude.getOrCrash()}:${location.longitude.getOrCrash()})",
+              Text("Coordinates (${location!.latitude.getOrCrash()}:${location!.longitude.getOrCrash()})",
                   style: Theme.of(context).textTheme.bodyMedium),
               //insert-info
 
@@ -37,7 +52,7 @@ class PanelLocationView extends ConsumerWidget {
                 height: 150,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: location.listWeatherData
+                  children: location!.listWeatherData
                       .where((data) {
                         if (dateSearch == null) return true;
                         return data.date.isSameDayAs(dateSearch!);
@@ -49,17 +64,18 @@ class PanelLocationView extends ConsumerWidget {
                 ),
               ),
               //BOUTON SUPPRIMER
-              Align(
-                alignment: Alignment.centerRight,
-                child: ElevatedButton.icon(
-                  onPressed: () {
-                    ref.read(locationRepositoryProvider).delete(location.id);
-                  },
-                  label: Text(""),
-                  style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
-                  icon: Icon(Icons.delete),
+              if (displayDeleteButton)
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      ref.read(locationRepositoryProvider).delete(location!.id);
+                    },
+                    label: Text(""),
+                    style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
+                    icon: Icon(Icons.delete),
+                  ),
                 ),
-              ),
             ],
           ),
         ),

@@ -5,7 +5,7 @@ import 'location_failure.dart';
 
 /// Une coordonnée géographique est valide si elle est positive
 Either<ValueFailure<double>, double> validateCoordinate(double coordinate) {
-  if (coordinate > 0) {
+  if (coordinate > -360 && coordinate < 360) {
     return right(coordinate);
   } else {
     return left(
