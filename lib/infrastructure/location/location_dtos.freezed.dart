@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LocationDTO _$LocationDTOFromJson(Map<String, dynamic> json) {
-  return _LocationDTO.fromJson(json);
+AppLocationDTO _$AppLocationDTOFromJson(Map<String, dynamic> json) {
+  return _AppLocationDTO.fromJson(json);
 }
 
 /// @nodoc
-mixin _$LocationDTO {
+mixin _$AppLocationDTO {
   @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
   double get latitude => throw _privateConstructorUsedError;
@@ -28,15 +28,15 @@ mixin _$LocationDTO {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LocationDTOCopyWith<LocationDTO> get copyWith =>
+  $AppLocationDTOCopyWith<AppLocationDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocationDTOCopyWith<$Res> {
-  factory $LocationDTOCopyWith(
-          LocationDTO value, $Res Function(LocationDTO) then) =
-      _$LocationDTOCopyWithImpl<$Res, LocationDTO>;
+abstract class $AppLocationDTOCopyWith<$Res> {
+  factory $AppLocationDTOCopyWith(
+          AppLocationDTO value, $Res Function(AppLocationDTO) then) =
+      _$AppLocationDTOCopyWithImpl<$Res, AppLocationDTO>;
   @useResult
   $Res call(
       {@JsonKey(ignore: true) String? id,
@@ -46,9 +46,9 @@ abstract class $LocationDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LocationDTOCopyWithImpl<$Res, $Val extends LocationDTO>
-    implements $LocationDTOCopyWith<$Res> {
-  _$LocationDTOCopyWithImpl(this._value, this._then);
+class _$AppLocationDTOCopyWithImpl<$Res, $Val extends AppLocationDTO>
+    implements $AppLocationDTOCopyWith<$Res> {
+  _$AppLocationDTOCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -85,11 +85,11 @@ class _$LocationDTOCopyWithImpl<$Res, $Val extends LocationDTO>
 }
 
 /// @nodoc
-abstract class _$$_LocationDTOCopyWith<$Res>
-    implements $LocationDTOCopyWith<$Res> {
-  factory _$$_LocationDTOCopyWith(
-          _$_LocationDTO value, $Res Function(_$_LocationDTO) then) =
-      __$$_LocationDTOCopyWithImpl<$Res>;
+abstract class _$$_AppLocationDTOCopyWith<$Res>
+    implements $AppLocationDTOCopyWith<$Res> {
+  factory _$$_AppLocationDTOCopyWith(
+          _$_AppLocationDTO value, $Res Function(_$_AppLocationDTO) then) =
+      __$$_AppLocationDTOCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,11 +100,11 @@ abstract class _$$_LocationDTOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LocationDTOCopyWithImpl<$Res>
-    extends _$LocationDTOCopyWithImpl<$Res, _$_LocationDTO>
-    implements _$$_LocationDTOCopyWith<$Res> {
-  __$$_LocationDTOCopyWithImpl(
-      _$_LocationDTO _value, $Res Function(_$_LocationDTO) _then)
+class __$$_AppLocationDTOCopyWithImpl<$Res>
+    extends _$AppLocationDTOCopyWithImpl<$Res, _$_AppLocationDTO>
+    implements _$$_AppLocationDTOCopyWith<$Res> {
+  __$$_AppLocationDTOCopyWithImpl(
+      _$_AppLocationDTO _value, $Res Function(_$_AppLocationDTO) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +115,7 @@ class __$$_LocationDTOCopyWithImpl<$Res>
     Object? longitude = null,
     Object? place = null,
   }) {
-    return _then(_$_LocationDTO(
+    return _then(_$_AppLocationDTO(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -138,16 +138,16 @@ class __$$_LocationDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LocationDTO extends _LocationDTO {
-  const _$_LocationDTO(
+class _$_AppLocationDTO extends _AppLocationDTO {
+  const _$_AppLocationDTO(
       {@JsonKey(ignore: true) this.id,
       required this.latitude,
       required this.longitude,
       required this.place})
       : super._();
 
-  factory _$_LocationDTO.fromJson(Map<String, dynamic> json) =>
-      _$$_LocationDTOFromJson(json);
+  factory _$_AppLocationDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_AppLocationDTOFromJson(json);
 
   @override
   @JsonKey(ignore: true)
@@ -161,14 +161,14 @@ class _$_LocationDTO extends _LocationDTO {
 
   @override
   String toString() {
-    return 'LocationDTO(id: $id, latitude: $latitude, longitude: $longitude, place: $place)';
+    return 'AppLocationDTO(id: $id, latitude: $latitude, longitude: $longitude, place: $place)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LocationDTO &&
+            other is _$_AppLocationDTO &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
@@ -184,27 +184,27 @@ class _$_LocationDTO extends _LocationDTO {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LocationDTOCopyWith<_$_LocationDTO> get copyWith =>
-      __$$_LocationDTOCopyWithImpl<_$_LocationDTO>(this, _$identity);
+  _$$_AppLocationDTOCopyWith<_$_AppLocationDTO> get copyWith =>
+      __$$_AppLocationDTOCopyWithImpl<_$_AppLocationDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LocationDTOToJson(
+    return _$$_AppLocationDTOToJson(
       this,
     );
   }
 }
 
-abstract class _LocationDTO extends LocationDTO {
-  const factory _LocationDTO(
+abstract class _AppLocationDTO extends AppLocationDTO {
+  const factory _AppLocationDTO(
       {@JsonKey(ignore: true) final String? id,
       required final double latitude,
       required final double longitude,
-      required final String place}) = _$_LocationDTO;
-  const _LocationDTO._() : super._();
+      required final String place}) = _$_AppLocationDTO;
+  const _AppLocationDTO._() : super._();
 
-  factory _LocationDTO.fromJson(Map<String, dynamic> json) =
-      _$_LocationDTO.fromJson;
+  factory _AppLocationDTO.fromJson(Map<String, dynamic> json) =
+      _$_AppLocationDTO.fromJson;
 
   @override
   @JsonKey(ignore: true)
@@ -217,6 +217,6 @@ abstract class _LocationDTO extends LocationDTO {
   String get place;
   @override
   @JsonKey(ignore: true)
-  _$$_LocationDTOCopyWith<_$_LocationDTO> get copyWith =>
+  _$$_AppLocationDTOCopyWith<_$_AppLocationDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

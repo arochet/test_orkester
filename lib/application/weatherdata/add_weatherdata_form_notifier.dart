@@ -1,8 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:location/location.dart';
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
+import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:meteo_okester/DOMAIN/weatherdata/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/weatherdata/weatherdata.dart';
 import 'package:meteo_okester/DOMAIN/weatherdata/weatherdata_failure.dart';
@@ -50,7 +52,7 @@ class WeatherDataFormNotifier extends StateNotifier<AddWeatherDataFormData> {
 
   idLocationChanged(String param) {
     state = state.copyWith(
-        weatherData: state.weatherData.copyWith(idLocation: UniqueId.fromUniqueString(param)),
+        weatherData: state.weatherData.copyWith(location: AppLocation.id(UniqueId.fromUniqueString(param))),
         authFailureOrSuccessOption: none());
   }
 //insert-changed
@@ -61,7 +63,7 @@ class WeatherDataFormNotifier extends StateNotifier<AddWeatherDataFormData> {
 
     //insert-valid-params
 
-    if (state.weatherData.type.isValid() && state.weatherData.idLocation.isValid()) {
+    if (state.weatherData.type.isValid()) {
       state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
 
       failureOrSuccess = await this._iWeatherDataRepository.create(state.weatherData);

@@ -2,16 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
 import 'package:meteo_okester/INFRASTRUCTURE/core/firestore_helpers.dart';
-import 'package:meteo_okester/DOMAIN/location/location.dart';
+import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:meteo_okester/DOMAIN/location/location_failure.dart';
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'location_dtos.dart';
 
 abstract class ILocationRepository {
-  Stream<Either<LocationFailure, List<Location>>> watch();
-  Future<Either<LocationFailure, Location>> watchWithId(UniqueId id);
-  Future<Either<LocationFailure, Unit>> create(Location location);
-  Future<Either<LocationFailure, Unit>> update(Location location);
+  Stream<Either<LocationFailure, List<AppLocation>>> watch();
+  Future<Either<LocationFailure, AppLocation>> watchWithId(UniqueId id);
+  Future<Either<LocationFailure, Unit>> create(AppLocation location);
+  Future<Either<LocationFailure, Unit>> update(AppLocation location);
   Future<Either<LocationFailure, Unit>> delete(UniqueId id);
 }
 
@@ -24,7 +24,7 @@ class LocationRepository implements ILocationRepository {
   );
 
   @override
-  Future<Either<LocationFailure, Unit>> create(Location location) async {
+  Future<Either<LocationFailure, Unit>> create(AppLocation location) async {
     try {
       /* final user = (await getIt<AuthRepository>().getUserData())
           .fold(() => null, (user) => user);
@@ -37,7 +37,7 @@ class LocationRepository implements ILocationRepository {
         return left(const LocationFailure.unexpected()); */
 
       //On crée la méchante tâche
-      final locationDTO = LocationDTO.fromDomain(location);
+      final locationDTO = AppLocationDTO.fromDomain(location);
       await _firestore.locationCollection.doc(locationDTO.id).set(locationDTO.toJson());
 
       return right(unit);
@@ -71,9 +71,9 @@ class LocationRepository implements ILocationRepository {
   }
 
   @override
-  Future<Either<LocationFailure, Unit>> update(Location location) async {
+  Future<Either<LocationFailure, Unit>> update(AppLocation location) async {
     try {
-      final locationDTO = LocationDTO.fromDomain(location);
+      final locationDTO = AppLocationDTO.fromDomain(location);
       await _firestore.locationCollection.doc(locationDTO.id).update(locationDTO.toJson());
 
       return right(unit);
@@ -89,18 +89,18 @@ class LocationRepository implements ILocationRepository {
   }
 
   @override
-  Stream<Either<LocationFailure, List<Location>>> watch() async* {
+  Stream<Either<LocationFailure, List<AppLocation>>> watch() async* {
     final collection = _firestore.locationCollection;
 
     yield* collection
         .snapshots()
         .map(
-          (snapshot) => right<LocationFailure, List<Location>>(
+          (snapshot) => right<LocationFailure, List<AppLocation>>(
             snapshot.docs.map((doc) {
               try {
-                return LocationDTO.fromFirestore(doc).toDomain();
+                return AppLocationDTO.fromFirestore(doc).toDomain();
               } catch (e) {}
-              return Location.empty();
+              return AppLocation.empty();
             }).toList(),
           ),
         )
@@ -114,10 +114,10 @@ class LocationRepository implements ILocationRepository {
   }
 
   @override
-  Future<Either<LocationFailure, Location>> watchWithId(UniqueId id) async {
+  Future<Either<LocationFailure, AppLocation>> watchWithId(UniqueId id) async {
     final collection = _firestore.locationCollection.doc(id.getOrCrash());
 
-    return collection.get().then((doc) => right(LocationDTO.fromFirestore(doc)
+    return collection.get().then((doc) => right(AppLocationDTO.fromFirestore(doc)
         .toDomain())) /* .onError((e, stackTrace) => left(const LocationFailure.unexpected())) */;
   }
 }

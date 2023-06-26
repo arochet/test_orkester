@@ -1,6 +1,6 @@
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
-import 'package:meteo_okester/DOMAIN/location/location.dart';
+import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meteo_okester/DOMAIN/location/value_objects.dart';
@@ -8,18 +8,18 @@ part 'location_dtos.freezed.dart';
 part 'location_dtos.g.dart';
 
 @freezed
-abstract class LocationDTO implements _$LocationDTO {
-  const LocationDTO._();
+abstract class AppLocationDTO implements _$AppLocationDTO {
+  const AppLocationDTO._();
 
-  const factory LocationDTO({
+  const factory AppLocationDTO({
     @JsonKey(ignore: true) String? id,
     required double latitude,
     required double longitude,
     required String place,
-  }) = _LocationDTO;
+  }) = _AppLocationDTO;
 
-  factory LocationDTO.fromDomain(Location obj) {
-    return LocationDTO(
+  factory AppLocationDTO.fromDomain(AppLocation obj) {
+    return AppLocationDTO(
       id: obj.id.getOrCrash(),
       latitude: obj.latitude.getOrCrash(),
       longitude: obj.longitude.getOrCrash(),
@@ -27,8 +27,8 @@ abstract class LocationDTO implements _$LocationDTO {
     );
   }
 
-  Location toDomain() {
-    return Location(
+  AppLocation toDomain() {
+    return AppLocation(
       id: UniqueId.fromUniqueString(id!),
       latitude: Coordinate(latitude),
       longitude: Coordinate(longitude),
@@ -36,9 +36,9 @@ abstract class LocationDTO implements _$LocationDTO {
     );
   }
 
-  factory LocationDTO.fromJson(Map<String, dynamic> json) => _$LocationDTOFromJson(json);
+  factory AppLocationDTO.fromJson(Map<String, dynamic> json) => _$AppLocationDTOFromJson(json);
 
-  factory LocationDTO.fromFirestore(DocumentSnapshot doc) {
-    return LocationDTO.fromJson(doc.data() as Map<String, dynamic>).copyWith(id: doc.id);
+  factory AppLocationDTO.fromFirestore(DocumentSnapshot doc) {
+    return AppLocationDTO.fromJson(doc.data() as Map<String, dynamic>).copyWith(id: doc.id);
   }
 }

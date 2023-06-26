@@ -17,7 +17,7 @@ import 'package:meteo_okester/INFRASTRUCTURE/weatherdata/weatherdata_repository.
 
 import 'DOMAIN/core/errors.dart';
 import 'DOMAIN/core/value_objects.dart';
-import 'DOMAIN/location/location.dart';
+import 'DOMAIN/location/app_location.dart';
 import 'DOMAIN/location/location_failure.dart';
 import 'DOMAIN/weatherdata/weatherdata.dart';
 import 'DOMAIN/weatherdata/weatherdata_failure.dart';
@@ -105,10 +105,10 @@ final locationFormNotifierProvider =
   (ref) => LocationFormNotifier(ref.watch(locationRepositoryProvider)),
 );
 
-final allLocationProvider = StreamProvider.autoDispose<Either<LocationFailure, List<Location>>>(
+final allLocationProvider = StreamProvider.autoDispose<Either<LocationFailure, List<AppLocation>>>(
     (ref) => ref.watch(locationRepositoryProvider).watch());
 
-final oneLocationProvider = FutureProvider.autoDispose.family<Either<LocationFailure, Location>, UniqueId>(
+final oneLocationProvider = FutureProvider.autoDispose.family<Either<LocationFailure, AppLocation>, UniqueId>(
     (ref, id) => ref.watch(locationRepositoryProvider).watchWithId(id));
 
 //WEATHER DATA

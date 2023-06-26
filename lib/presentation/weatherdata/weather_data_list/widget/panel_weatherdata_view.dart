@@ -19,7 +19,7 @@ class PanelWeatherDataView extends StatelessWidget {
           children: [
             Text("date : ${weatherData.date.toString()}", style: Theme.of(context).textTheme.bodyMedium),
             Text("type : ${weatherData.type}", style: Theme.of(context).textTheme.bodyMedium),
-            Text("idLocation : ${weatherData.idLocation.getOrCrash()}",
+            Text("idLocation : ${weatherData.location.getOrCrash()}",
                 style: Theme.of(context).textTheme.bodyMedium),
 //insert-info
             TextButton(

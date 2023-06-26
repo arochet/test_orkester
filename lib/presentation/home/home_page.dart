@@ -9,6 +9,8 @@ import 'package:meteo_okester/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'widget/main_panel.dart';
+
 /// Page d'accueil
 @RoutePage()
 class HomePage extends ConsumerWidget {
@@ -20,16 +22,7 @@ class HomePage extends ConsumerWidget {
       child: ShowComponentFile(
         title: 'home/home_page.dart',
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              /* AppAsync(
-                ref.watch(currentUserData),
-                builder: (UserData? p0) => Text(p0?.email?.getOrCrash() ?? 'no user'),
-                loading: Text('...'),
-              ), */
-            ],
-          ),
+          child: MainPanel(),
         ),
       ),
     );

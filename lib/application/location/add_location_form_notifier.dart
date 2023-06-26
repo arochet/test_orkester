@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
-import 'package:meteo_okester/DOMAIN/location/location.dart';
+import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:meteo_okester/DOMAIN/location/location_failure.dart';
 import 'package:meteo_okester/DOMAIN/location/value_objects.dart';
 import 'package:meteo_okester/INFRASTRUCTURE/location/location_repository.dart';
@@ -13,14 +13,14 @@ part 'add_location_form_notifier.freezed.dart';
 @freezed
 class AddLocationFormData with _$AddLocationFormData {
   const factory AddLocationFormData({
-    required Location location,
+    required AppLocation location,
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<LocationFailure, Unit>> authFailureOrSuccessOption,
   }) = _AddLocationFormData;
 
   factory AddLocationFormData.initial() => AddLocationFormData(
-      location: Location.empty(),
+      location: AppLocation.empty(),
       showErrorMessages: false,
       isSubmitting: false,
       authFailureOrSuccessOption: none());
@@ -71,7 +71,7 @@ class LocationFormNotifier extends StateNotifier<AddLocationFormData> {
       failureOrSuccess = await this._iLocationRepository.create(state.location);
 
       if (failureOrSuccess.isRight()) {
-        state = state.copyWith(location: Location.empty());
+        state = state.copyWith(location: AppLocation.empty());
       }
     }
 

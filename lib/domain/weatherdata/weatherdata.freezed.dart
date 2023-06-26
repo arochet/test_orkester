@@ -19,7 +19,7 @@ mixin _$WeatherData {
   UniqueId get id => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   TypeWeather get type => throw _privateConstructorUsedError;
-  UniqueId get idLocation => throw _privateConstructorUsedError;
+  AppLocation? get location => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WeatherDataCopyWith<WeatherData> get copyWith =>
@@ -33,7 +33,9 @@ abstract class $WeatherDataCopyWith<$Res> {
       _$WeatherDataCopyWithImpl<$Res, WeatherData>;
   @useResult
   $Res call(
-      {UniqueId id, DateTime date, TypeWeather type, UniqueId idLocation});
+      {UniqueId id, DateTime date, TypeWeather type, AppLocation? location});
+
+  $AppLocationCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -52,7 +54,7 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
     Object? id = null,
     Object? date = null,
     Object? type = null,
-    Object? idLocation = null,
+    Object? location = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -67,11 +69,23 @@ class _$WeatherDataCopyWithImpl<$Res, $Val extends WeatherData>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TypeWeather,
-      idLocation: null == idLocation
-          ? _value.idLocation
-          : idLocation // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as AppLocation?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppLocationCopyWith<$Res>? get location {
+    if (_value.location == null) {
+      return null;
+    }
+
+    return $AppLocationCopyWith<$Res>(_value.location!, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
   }
 }
 
@@ -84,7 +98,10 @@ abstract class _$$_WeatherDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UniqueId id, DateTime date, TypeWeather type, UniqueId idLocation});
+      {UniqueId id, DateTime date, TypeWeather type, AppLocation? location});
+
+  @override
+  $AppLocationCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -101,7 +118,7 @@ class __$$_WeatherDataCopyWithImpl<$Res>
     Object? id = null,
     Object? date = null,
     Object? type = null,
-    Object? idLocation = null,
+    Object? location = freezed,
   }) {
     return _then(_$_WeatherData(
       id: null == id
@@ -116,10 +133,10 @@ class __$$_WeatherDataCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as TypeWeather,
-      idLocation: null == idLocation
-          ? _value.idLocation
-          : idLocation // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as AppLocation?,
     ));
   }
 }
@@ -131,7 +148,7 @@ class _$_WeatherData extends _WeatherData {
       {required this.id,
       required this.date,
       required this.type,
-      required this.idLocation})
+      required this.location})
       : super._();
 
   @override
@@ -141,11 +158,11 @@ class _$_WeatherData extends _WeatherData {
   @override
   final TypeWeather type;
   @override
-  final UniqueId idLocation;
+  final AppLocation? location;
 
   @override
   String toString() {
-    return 'WeatherData(id: $id, date: $date, type: $type, idLocation: $idLocation)';
+    return 'WeatherData(id: $id, date: $date, type: $type, location: $location)';
   }
 
   @override
@@ -156,12 +173,12 @@ class _$_WeatherData extends _WeatherData {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.idLocation, idLocation) ||
-                other.idLocation == idLocation));
+            (identical(other.location, location) ||
+                other.location == location));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, date, type, idLocation);
+  int get hashCode => Object.hash(runtimeType, id, date, type, location);
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +192,7 @@ abstract class _WeatherData extends WeatherData {
       {required final UniqueId id,
       required final DateTime date,
       required final TypeWeather type,
-      required final UniqueId idLocation}) = _$_WeatherData;
+      required final AppLocation? location}) = _$_WeatherData;
   const _WeatherData._() : super._();
 
   @override
@@ -185,7 +202,7 @@ abstract class _WeatherData extends WeatherData {
   @override
   TypeWeather get type;
   @override
-  UniqueId get idLocation;
+  AppLocation? get location;
   @override
   @JsonKey(ignore: true)
   _$$_WeatherDataCopyWith<_$_WeatherData> get copyWith =>

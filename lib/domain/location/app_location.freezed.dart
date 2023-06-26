@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'location.dart';
+part of 'app_location.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,30 +15,31 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Location {
+mixin _$AppLocation {
   UniqueId get id => throw _privateConstructorUsedError;
   Coordinate get latitude => throw _privateConstructorUsedError;
   Coordinate get longitude => throw _privateConstructorUsedError;
   Nom get place => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LocationCopyWith<Location> get copyWith =>
+  $AppLocationCopyWith<AppLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocationCopyWith<$Res> {
-  factory $LocationCopyWith(Location value, $Res Function(Location) then) =
-      _$LocationCopyWithImpl<$Res, Location>;
+abstract class $AppLocationCopyWith<$Res> {
+  factory $AppLocationCopyWith(
+          AppLocation value, $Res Function(AppLocation) then) =
+      _$AppLocationCopyWithImpl<$Res, AppLocation>;
   @useResult
   $Res call(
       {UniqueId id, Coordinate latitude, Coordinate longitude, Nom place});
 }
 
 /// @nodoc
-class _$LocationCopyWithImpl<$Res, $Val extends Location>
-    implements $LocationCopyWith<$Res> {
-  _$LocationCopyWithImpl(this._value, this._then);
+class _$AppLocationCopyWithImpl<$Res, $Val extends AppLocation>
+    implements $AppLocationCopyWith<$Res> {
+  _$AppLocationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,10 +76,11 @@ class _$LocationCopyWithImpl<$Res, $Val extends Location>
 }
 
 /// @nodoc
-abstract class _$$_LocationCopyWith<$Res> implements $LocationCopyWith<$Res> {
-  factory _$$_LocationCopyWith(
-          _$_Location value, $Res Function(_$_Location) then) =
-      __$$_LocationCopyWithImpl<$Res>;
+abstract class _$$_AppLocationCopyWith<$Res>
+    implements $AppLocationCopyWith<$Res> {
+  factory _$$_AppLocationCopyWith(
+          _$_AppLocation value, $Res Function(_$_AppLocation) then) =
+      __$$_AppLocationCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -86,11 +88,11 @@ abstract class _$$_LocationCopyWith<$Res> implements $LocationCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LocationCopyWithImpl<$Res>
-    extends _$LocationCopyWithImpl<$Res, _$_Location>
-    implements _$$_LocationCopyWith<$Res> {
-  __$$_LocationCopyWithImpl(
-      _$_Location _value, $Res Function(_$_Location) _then)
+class __$$_AppLocationCopyWithImpl<$Res>
+    extends _$AppLocationCopyWithImpl<$Res, _$_AppLocation>
+    implements _$$_AppLocationCopyWith<$Res> {
+  __$$_AppLocationCopyWithImpl(
+      _$_AppLocation _value, $Res Function(_$_AppLocation) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +103,7 @@ class __$$_LocationCopyWithImpl<$Res>
     Object? longitude = null,
     Object? place = null,
   }) {
-    return _then(_$_Location(
+    return _then(_$_AppLocation(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -124,8 +126,8 @@ class __$$_LocationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Location extends _Location {
-  const _$_Location(
+class _$_AppLocation extends _AppLocation {
+  const _$_AppLocation(
       {required this.id,
       required this.latitude,
       required this.longitude,
@@ -143,14 +145,14 @@ class _$_Location extends _Location {
 
   @override
   String toString() {
-    return 'Location(id: $id, latitude: $latitude, longitude: $longitude, place: $place)';
+    return 'AppLocation(id: $id, latitude: $latitude, longitude: $longitude, place: $place)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Location &&
+            other is _$_AppLocation &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
@@ -165,17 +167,17 @@ class _$_Location extends _Location {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LocationCopyWith<_$_Location> get copyWith =>
-      __$$_LocationCopyWithImpl<_$_Location>(this, _$identity);
+  _$$_AppLocationCopyWith<_$_AppLocation> get copyWith =>
+      __$$_AppLocationCopyWithImpl<_$_AppLocation>(this, _$identity);
 }
 
-abstract class _Location extends Location {
-  const factory _Location(
+abstract class _AppLocation extends AppLocation {
+  const factory _AppLocation(
       {required final UniqueId id,
       required final Coordinate latitude,
       required final Coordinate longitude,
-      required final Nom place}) = _$_Location;
-  const _Location._() : super._();
+      required final Nom place}) = _$_AppLocation;
+  const _AppLocation._() : super._();
 
   @override
   UniqueId get id;
@@ -187,6 +189,6 @@ abstract class _Location extends Location {
   Nom get place;
   @override
   @JsonKey(ignore: true)
-  _$$_LocationCopyWith<_$_Location> get copyWith =>
+  _$$_AppLocationCopyWith<_$_AppLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }

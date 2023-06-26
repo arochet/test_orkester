@@ -65,6 +65,28 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AuthConnexionPage(),
       );
     },
+    LocationListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LocationListPage(),
+      );
+    },
+    LocationViewRoute.name: (routeData) {
+      final args = routeData.argsAs<LocationViewRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: LocationViewPage(
+          id: args.id,
+          key: args.key,
+        ),
+      );
+    },
+    LocationAddRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LocationAddPage(),
+      );
+    },
     SearchRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -133,28 +155,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ColorsPage(),
-      );
-    },
-    LocationListRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LocationListPage(),
-      );
-    },
-    LocationViewRoute.name: (routeData) {
-      final args = routeData.argsAs<LocationViewRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: LocationViewPage(
-          id: args.id,
-          key: args.key,
-        ),
-      );
-    },
-    LocationAddRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LocationAddPage(),
       );
     },
     WeatherDataListRoute.name: (routeData) {
@@ -305,6 +305,72 @@ class AuthConnexionRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AuthConnexionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LocationListPage]
+class LocationListRoute extends PageRouteInfo<void> {
+  const LocationListRoute({List<PageRouteInfo>? children})
+      : super(
+          LocationListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LocationListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LocationViewPage]
+class LocationViewRoute extends PageRouteInfo<LocationViewRouteArgs> {
+  LocationViewRoute({
+    required UniqueId id,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          LocationViewRoute.name,
+          args: LocationViewRouteArgs(
+            id: id,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'LocationViewRoute';
+
+  static const PageInfo<LocationViewRouteArgs> page =
+      PageInfo<LocationViewRouteArgs>(name);
+}
+
+class LocationViewRouteArgs {
+  const LocationViewRouteArgs({
+    required this.id,
+    this.key,
+  });
+
+  final UniqueId id;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'LocationViewRouteArgs{id: $id, key: $key}';
+  }
+}
+
+/// generated route for
+/// [LocationAddPage]
+class LocationAddRoute extends PageRouteInfo<void> {
+  const LocationAddRoute({List<PageRouteInfo>? children})
+      : super(
+          LocationAddRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LocationAddRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -483,72 +549,6 @@ class ColorsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ColorsRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [LocationListPage]
-class LocationListRoute extends PageRouteInfo<void> {
-  const LocationListRoute({List<PageRouteInfo>? children})
-      : super(
-          LocationListRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LocationListRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [LocationViewPage]
-class LocationViewRoute extends PageRouteInfo<LocationViewRouteArgs> {
-  LocationViewRoute({
-    required UniqueId id,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          LocationViewRoute.name,
-          args: LocationViewRouteArgs(
-            id: id,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'LocationViewRoute';
-
-  static const PageInfo<LocationViewRouteArgs> page =
-      PageInfo<LocationViewRouteArgs>(name);
-}
-
-class LocationViewRouteArgs {
-  const LocationViewRouteArgs({
-    required this.id,
-    this.key,
-  });
-
-  final UniqueId id;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'LocationViewRouteArgs{id: $id, key: $key}';
-  }
-}
-
-/// generated route for
-/// [LocationAddPage]
-class LocationAddRoute extends PageRouteInfo<void> {
-  const LocationAddRoute({List<PageRouteInfo>? children})
-      : super(
-          LocationAddRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LocationAddRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

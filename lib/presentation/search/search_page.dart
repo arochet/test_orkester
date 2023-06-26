@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/show_component_file.dart';
+import 'package:meteo_okester/PRESENTATION/search/widget/panel_search.dart';
 
 @RoutePage()
 class SearchPage extends StatelessWidget {
@@ -12,7 +13,7 @@ class SearchPage extends StatelessWidget {
     return ShowComponentFile(
       child: Padding(
         padding: EdgeInsets.all(10),
-        child: Text('insert-code'),
+        child: PanelSearch(),
       ),
     );
   }

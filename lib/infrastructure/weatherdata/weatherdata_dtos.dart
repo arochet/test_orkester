@@ -1,5 +1,7 @@
+import 'package:location/location.dart';
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
+import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:meteo_okester/DOMAIN/weatherdata/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/weatherdata/weatherdata.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -23,16 +25,16 @@ abstract class WeatherDataDTO implements _$WeatherDataDTO {
       id: obj.id.getOrCrash(),
       date: obj.date.millisecondsSinceEpoch,
       type: obj.type.getOrCrash().toShortString(),
-      idLocation: obj.idLocation.getOrCrash(),
+      idLocation: obj.location?.id.getOrCrash() ?? '',
     );
   }
 
-  WeatherData toDomain() {
+  WeatherData toDomain(AppLocation? location) {
     return WeatherData(
       id: UniqueId.fromUniqueString(id!),
       date: DateTime.fromMillisecondsSinceEpoch(date),
       type: TypeWeather.fromString(type),
-      idLocation: UniqueId.fromUniqueString(idLocation),
+      location: location,
     );
   }
 

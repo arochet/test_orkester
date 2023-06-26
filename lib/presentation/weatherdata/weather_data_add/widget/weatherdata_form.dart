@@ -68,7 +68,7 @@ class WeatherDataForm extends ConsumerWidget {
           validator: (_) {
             final notifier = ref.read(weatherDataFormNotifierProvider);
             if (notifier.showErrorMessages) {
-              return notifier.weatherData.idLocation.value.fold(
+              return notifier.weatherData.location.value.fold(
                 (f) => f.maybeMap(
                   empty: (_) => 'idLocalisation vide',
                   orElse: () => null,
@@ -110,7 +110,7 @@ class WeatherDataForm extends ConsumerWidget {
           validator: (_) {
             final notifier = ref.read(weatherDataFormNotifierProvider);
             if (notifier.showErrorMessages) {
-              return notifier.weatherData.idLocation.value.fold(
+              return notifier.weatherData.location.value.fold(
                 (f) => f.maybeMap(
                   exceedingLenghtOrNull: (_) => 'type invalide',
                   orElse: () => null,

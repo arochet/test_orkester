@@ -3,22 +3,29 @@ import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/auth/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/location/value_objects.dart';
 
-part 'location.freezed.dart';
+part 'app_location.freezed.dart';
 
 /// Coordonnée géographique avec le nom d'un lieu
 @freezed
-abstract class Location with _$Location {
-  const Location._();
+abstract class AppLocation with _$AppLocation {
+  const AppLocation._();
 
-  const factory Location({
+  const factory AppLocation({
     required UniqueId id,
     required Coordinate latitude,
     required Coordinate longitude,
     required Nom place,
-  }) = _Location;
+  }) = _AppLocation;
 
-  factory Location.empty() => Location(
+  factory AppLocation.empty() => AppLocation(
         id: UniqueId(),
+        latitude: Coordinate(0),
+        longitude: Coordinate(0),
+        place: Nom(''),
+      );
+
+  factory AppLocation.id(UniqueId id) => AppLocation(
+        id: id,
         latitude: Coordinate(0),
         longitude: Coordinate(0),
         place: Nom(''),

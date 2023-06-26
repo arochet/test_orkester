@@ -5,6 +5,7 @@ import 'package:meteo_okester/INFRASTRUCTURE/core/firestore_helpers.dart';
 import 'package:meteo_okester/DOMAIN/weatherdata/weatherdata.dart';
 import 'package:meteo_okester/DOMAIN/weatherdata/weatherdata_failure.dart';
 import 'package:meteo_okester/DOMAIN/core/value_objects.dart';
+import 'package:meteo_okester/INFRASTRUCTURE/location/location_dtos.dart';
 import 'weatherdata_dtos.dart';
 
 abstract class IWeatherDataRepository {
@@ -98,7 +99,11 @@ class WeatherDataRepository implements IWeatherDataRepository {
           (snapshot) => right<WeatherDataFailure, List<WeatherData>>(
             snapshot.docs.map((doc) {
               try {
-                return WeatherDataDTO.fromFirestore(doc).toDomain();
+                WeatherDataDTO dto = WeatherDataDTO.fromFirestore(doc);
+                _firestore.locationCollection.doc(dto.idLocation).get().then((doc) {
+                  AppLocationDTO.fromFirestore(doc).toDomain();
+                  return dto.toDomain(null);
+                });
               } catch (e) {}
               return WeatherData.empty();
             }).toList(),
@@ -118,6 +123,6 @@ class WeatherDataRepository implements IWeatherDataRepository {
     final collection = _firestore.weatherDataCollection.doc(id.getOrCrash());
 
     return collection.get().then((doc) => right(WeatherDataDTO.fromFirestore(doc)
-        .toDomain())) /* .onError((e, stackTrace) => left(const WeatherDataFailure.unexpected())) */;
+        .toDomain(null))) /* .onError((e, stackTrace) => left(const WeatherDataFailure.unexpected())) */;
   }
 }
