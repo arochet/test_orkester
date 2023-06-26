@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
+import 'package:meteo_okester/DOMAIN/location/value_objects.dart';
+import 'package:meteo_okester/DOMAIN/location/weatherdata.dart';
 import 'package:meteo_okester/INFRASTRUCTURE/core/firestore_helpers.dart';
 import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:meteo_okester/DOMAIN/location/location_failure.dart';
@@ -98,7 +100,7 @@ class LocationRepository implements ILocationRepository {
           (snapshot) => right<LocationFailure, List<AppLocation>>(
             snapshot.docs.map((doc) {
               try {
-                return AppLocationDTO.fromFirestore(doc).toDomain();
+                return AppLocationDTO.fromFirestore(doc).toDomain(listWeatherData);
               } catch (e) {}
               return AppLocation.empty();
             }).toList(),
@@ -117,7 +119,20 @@ class LocationRepository implements ILocationRepository {
   Future<Either<LocationFailure, AppLocation>> watchWithId(UniqueId id) async {
     final collection = _firestore.locationCollection.doc(id.getOrCrash());
 
-    return collection.get().then((doc) => right(AppLocationDTO.fromFirestore(doc)
-        .toDomain())) /* .onError((e, stackTrace) => left(const LocationFailure.unexpected())) */;
+    return collection.get().then((doc) => right(AppLocationDTO.fromFirestore(doc).toDomain(
+        listWeatherData))) /* .onError((e, stackTrace) => left(const LocationFailure.unexpected())) */;
   }
+
+  List<WeatherData> get listWeatherData => [
+        WeatherData(
+          id: UniqueId.fromUniqueString('0'),
+          date: DateTime(2023, 1, 3),
+          type: TypeWeather(TypeWeatherState.sun),
+        ),
+        WeatherData(
+          id: UniqueId.fromUniqueString('1'),
+          date: DateTime(2023, 1, 3),
+          type: TypeWeather(TypeWeatherState.sun),
+        )
+      ];
 }

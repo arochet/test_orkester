@@ -6,6 +6,8 @@ import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meteo_okester/DOMAIN/location/value_objects.dart';
+
+import '../../DOMAIN/location/weatherdata.dart';
 part 'location_dtos.freezed.dart';
 part 'location_dtos.g.dart';
 
@@ -27,17 +29,17 @@ abstract class AppLocationDTO implements _$AppLocationDTO {
       latitude: obj.latitude.getOrCrash(),
       longitude: obj.longitude.getOrCrash(),
       place: obj.place.getOrCrash(),
-      listWeatherData: jsonEncode(obj.listWeatherData.map((e) => jsonEncode(e))),
+      listWeatherData: jsonEncode(obj.listWeatherData),
     );
   }
 
-  AppLocation toDomain() {
+  AppLocation toDomain(List<WeatherData>? listWeahterData) {
     return AppLocation(
         id: UniqueId.fromUniqueString(id!),
         latitude: Coordinate(latitude),
         longitude: Coordinate(longitude),
         place: Nom(place),
-        listWeatherData: jsonDecode(listWeatherData));
+        listWeatherData: listWeahterData ?? jsonDecode(listWeatherData));
   }
 
   factory AppLocationDTO.fromJson(Map<String, dynamic> json) => _$AppLocationDTOFromJson(json);

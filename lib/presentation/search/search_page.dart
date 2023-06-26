@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/is_connected_widget.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:meteo_okester/PRESENTATION/search/widget/panel_search.dart';
@@ -11,9 +12,12 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShowComponentFile(
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: PanelSearch(),
+      title: 'search/search_page.dart',
+      child: IsConnected(
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: PanelSearch(),
+        ),
       ),
     );
   }

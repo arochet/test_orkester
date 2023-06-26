@@ -1,6 +1,14 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/app_async.dart';
+import 'package:meteo_okester/PRESENTATION/core/_components/app_error.dart';
 import 'package:meteo_okester/PRESENTATION/core/_utils/date_utils.dart';
+import 'package:meteo_okester/providers.dart';
+
+import '../../../DOMAIN/location/app_location.dart';
+import '../../../DOMAIN/location/location_failure.dart';
+import 'result_list_location.dart';
 
 class PanelSearch extends ConsumerStatefulWidget {
   const PanelSearch({Key? key}) : super(key: key);
@@ -11,10 +19,12 @@ class PanelSearch extends ConsumerStatefulWidget {
 
 class _PanelSearchState extends ConsumerState<PanelSearch> {
   DateTime? date;
+  String? place;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //FORMULAIRE DE RECHERCHE
         Container(
           height: 170,
           child: Form(
@@ -25,7 +35,11 @@ class _PanelSearchState extends ConsumerState<PanelSearch> {
                 decoration: const InputDecoration(labelText: 'Place', suffixIcon: Icon(Icons.search)),
                 autocorrect: false,
                 textInputAction: TextInputAction.next,
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState(() {
+                    place = value;
+                  });
+                },
                 validator: (_) {
                   return null;
                 },
@@ -58,15 +72,11 @@ class _PanelSearchState extends ConsumerState<PanelSearch> {
             ]),
           ),
         ),
-        // Les résultats
+        // RESULTATS
         Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: ListView(
-              children: [
-                Text("Résultats", style: Theme.of(context).textTheme.headlineSmall),
-              ],
-            ),
+          child: ResultListLocation(
+            dateSearch: date,
+            placeSearch: place,
           ),
         ),
       ],
