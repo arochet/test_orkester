@@ -13,8 +13,10 @@ import 'package:meteo_okester/providers.dart';
 class PanelListWeatherDataToday extends ConsumerWidget {
   /// Position GPS de l'utilisateur
   final Position? positionGPS;
+  final AppLocation? location;
   const PanelListWeatherDataToday({
     required this.positionGPS,
+    required this.location,
     super.key,
   });
 
@@ -23,47 +25,14 @@ class PanelListWeatherDataToday extends ConsumerWidget {
     if (positionGPS == null) {
       return Container();
     }
+
     return ShowComponentFile(
       title: 'PanelListWeatherDataToday',
-      child: AppAsync(
-        ref.watch(allLocationProvider),
-        builder: (data) => data!.fold((error) => AppError(message: error.toString()), (listLocation) {
-          //Ici on recherche la location de Toulon
-          //Normalement on devrait faire un calcul avec les coordonnée GPS les plus proches
-          final List<AppLocation> listLoc = listLocation
-              .where(
-                (location) =>
-                    calculateDistance(location.latitude.getOrCrash(), location.longitude.getOrCrash(),
-                        positionGPS!.latitude, positionGPS!.longitude) <
-                    10,
-              )
-              .toList();
-
-          return PanelLocationView(
-            location: listLoc.length > 0 ? listLoc[0] : null,
-            dateSearch: DateTime.now(),
-            displayDeleteButton: false,
-          );
-        }),
+      child: PanelLocationView(
+        location: location,
+        dateSearch: DateTime.now(),
+        displayDeleteButton: false,
       ),
     );
-  }
-
-  /// Calcul de la distance entre deux points GPS. Retourne la distance en kilomètres
-  double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
-    const int earthRadius = 6371; // Rayon de la Terre en kilomètres
-
-    double dLat = _toRadians(lat2 - lat1);
-    double dLon = _toRadians(lon2 - lon1);
-
-    double a = pow(sin(dLat / 2), 2) + cos(_toRadians(lat1)) * cos(_toRadians(lat2)) * pow(sin(dLon / 2), 2);
-    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-
-    double distance = earthRadius * c;
-    return distance;
-  }
-
-  double _toRadians(double degree) {
-    return degree * pi / 180;
   }
 }
