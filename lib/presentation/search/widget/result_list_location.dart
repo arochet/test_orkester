@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/app_async.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/app_error.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/show_component_file.dart';
-import 'package:meteo_okester/PRESENTATION/account/account/location/location_list/widget/panel_location_view.dart';
+import 'package:meteo_okester/PRESENTATION/components/panel_location_view.dart';
 import 'package:meteo_okester/providers.dart';
 
 import '../../../DOMAIN/location/app_location.dart';

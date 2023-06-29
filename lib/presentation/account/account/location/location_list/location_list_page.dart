@@ -1,6 +1,6 @@
 import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 
-import 'widget/panel_location_view.dart';
+import '../../../../components/panel_location_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:meteo_okester/PRESENTATION/core/_core/router.dart';
 import 'package:meteo_okester/PRESENTATION/core/_components/main_scaffold.dart';

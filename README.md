@@ -9,6 +9,9 @@ Mis à jour : 29/06/2023
 Cette application permet de voir la météo. C'est un test pour ORKESTER. Elle contiens des fonctions de recherches.
 ```
 
+## DEMARRER L'APPLICATION
+
+Depuis VS Code on peut lancer l'application via 3 environnements : DEV, TEST et PROD
 
 ## STATE MANAGEMENT
 L'application utilise RiverPod comme StateManagement
