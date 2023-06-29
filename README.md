@@ -106,11 +106,12 @@ La liste est [ici](DOCUMENTATION/fonctions_utils.md)
 
 ## LES TEST
 
-Pour lancer les test, 2 commandes : 
+Pour lancer les test : 
 
 ```
 flutter test
 flutter drive \
   --driver=test_driver/integration_test.dart \
   --target=integration_test/app_test.dart
+flutter drive --target=test_driver/app.dart
 ```
