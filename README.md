@@ -1,12 +1,12 @@
 # METEO-ORKESTER
 
-Mis à jour : 24/11/2022
+Mis à jour : 29/06/2023
 
 
 ## DESCRIPTION DE L'APPLICATION
 
 ```
---> Entrer la description ici <--
+Cette application permet de voir la météo. C'est un test pour ORKESTER. Elle contiens des fonctions de recherches.
 ```
 
 
