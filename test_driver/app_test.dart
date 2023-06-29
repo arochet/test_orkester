@@ -2,6 +2,9 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
 void main() {
+  // This line enables the extension
+  //enableFlutterDriverExtension();
+
   group('[Test Driver]', () {
     late FlutterDriver driver;
 
@@ -14,67 +17,23 @@ void main() {
       driver.close();
     });
 
-    test('Connexion', () async {
+    test('Menu Principale', () async {
       await driver.clearTimeline();
-      await connexion(driver);
-      expect(await driver.getText(find.text("Home")), "Home");
+      await clicSreen(driver);
+      expect(await driver.getText(find.text("Accueil")), "Accueil");
     });
   });
 }
 
-connexion(FlutterDriver driver) async {
+clicSreen(FlutterDriver driver) async {
   //S'il l'on est déjà connecter
-  /* final present = await isPresent(find.text('Se Connecter'), driver);
-  if (!present) {
-    //Déconnexion
-    print("Déconnexion - 1");
-    await driver.tap(find.byValueKey("nav-home"));
-    print("Déconnexion - 1 bis");
-    await driver.waitFor(find.text("Jouer"));
-    print("Déconnexion - 2");
-    await driver.tap(find.byValueKey("nav-account"));
-    print("Déconnexion - 3");
-    await driver.waitFor(find.text("Données"));
-    print("Déconnexion - 4");
-    await driver.tap(find.text("Données"));
-    print("Déconnexion - 5");
-    await driver.waitFor(find.text("Modifier"));
-    print("Déconnexion - 6");
-    await driver.tap(find.text("Modifier"));
-    print("Déconnexion - 7");
-    await driver.tap(find.text("Se déconnecter"));
-    print("Déconnexion - 8");
-  }
-  print("Connexion - 1");
-  await driver.tap(find.text('Se Connecter'));
-  print("Connexion - 2");
-  await driver.waitFor(find.text('Mot de passe oublié ?'));
-  print("Connexion - 3");
-  await driver.tap(find.byValueKey('email-field'));
-  print("Connexion - 4");
-  await driver.enterText("albanrochet@gmail.com");
-  print("Connexion - 5");
-  await driver.waitFor(find.text("albanrochet@gmail.com"));
-  print("Connexion - 6");
-  await driver.tap(find.byValueKey('password-field'));
-  print("Connexion - 7");
-  await driver.enterText("azerazer");
-  print("Connexion - 8");
-  await driver.waitFor(find.text("azerazer"));
-  print("Connexion - 9");
-  await driver.tap(find.text("Se Connecter"));
-  print("Connexion - 10");
+  await Future.delayed(const Duration(seconds: 1));
+  await driver.waitFor(find.text("Recherche"));
+  await driver.tap(find.text("Recherche"));
+  await driver.waitFor(find.text("Compte"));
+  await driver.tap(find.text("Compte"));
+  await driver.waitFor(find.text("Accueil"));
+  await driver.tap(find.text("Accueil"));
   await Future.delayed(const Duration(seconds: 2));
-  await driver.waitFor(find.text("Jouer"), timeout: Duration(seconds: 5));
-  print("Connexion - 11"); */
-}
-
-Future<bool> isPresent(SerializableFinder byValueKey, FlutterDriver driver,
-    {Duration timeout = const Duration(seconds: 1)}) async {
-  try {
-    await driver.waitFor(byValueKey, timeout: timeout);
-    return true;
-  } catch (exception) {
-    return false;
-  }
+  await driver.waitFor(find.text("Accueil"), timeout: Duration(seconds: 5));
 }

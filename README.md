@@ -101,10 +101,13 @@ lib/PRESENTATION/core/_utils/
 
 La liste est [ici](DOCUMENTATION/fonctions_utils.md)
 
-## CRYPTAGE
+## LES TEST
 
-à remplir
+Pour lancer les test, 2 commandes : 
 
-## SCHEMA DE BASE DE DONNÉE
-
-à remplir
+```
+flutter test
+flutter drive \
+  --driver=test_driver/integration_test.dart \
+  --target=integration_test/app_test.dart
+```

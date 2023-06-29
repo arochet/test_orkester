@@ -8,27 +8,28 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:injectable/injectable.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'account_test.dart' as accounttest;
-import 'connexion_page_test.dart' as connexionpage;
+import 'panel_localisation_test.dart' as panellocalisationtest;
+import 'auth_page_test.dart' as connexionpage;
 
 Future<void> main() async {
   group('[Présentation]', () {
     IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-    configurationInjection(Environment.prod);
+    configurationInjection(Environment.test);
 
-    accounttest.main();
+    panellocalisationtest.main();
     connexionpage.main();
   });
 }
 
 Widget buildMainWidget(Widget child) {
-  return MediaQuery(data: new MediaQueryData(), child: ProviderScope(child: MaterialApp(home: child)));
+  return MediaQuery(
+      data: new MediaQueryData(), child: ProviderScope(child: MaterialApp(home: Scaffold(body: child))));
 }
 
 Widget buildMainWidgetWithOption(Widget child, List<Override> option) {
   return MediaQuery(
       data: new MediaQueryData(),
-      child: ProviderScope(overrides: [...option], child: MaterialApp(home: child)));
+      child: ProviderScope(overrides: [...option], child: MaterialApp(home: Scaffold(body: child))));
 }
 
 //////// OVERRIDE ////////

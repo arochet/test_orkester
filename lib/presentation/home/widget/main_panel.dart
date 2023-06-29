@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meteo_okester/DOMAIN/location/app_location.dart';
 import 'package:meteo_okester/DOMAIN/location/value_objects.dart';
 import 'package:meteo_okester/DOMAIN/location/weatherdata.dart';
@@ -71,7 +72,20 @@ class _MainPanelState extends ConsumerState<MainPanel> {
     super.initState();
 
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
-      positionGPS = await _determinePosition();
+      if (ref.read(environment).name != Environment.test) {
+        positionGPS = await _determinePosition();
+      } else {
+        positionGPS = Position(
+          latitude: 43.124228,
+          longitude: 5.928,
+          timestamp: DateTime.now(),
+          accuracy: 0,
+          altitude: 0,
+          heading: 0,
+          speed: 0,
+          speedAccuracy: 0,
+        );
+      }
       setState(() {
         positionGPS = positionGPS;
       });
@@ -100,10 +114,12 @@ class _MainPanelState extends ConsumerState<MainPanel> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // Première partie : Liste des données météo du jour
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: PanelListWeatherDataToday(positionGPS: positionGPS, location: location),
                   ),
+                  // Seconde partie : Localisation GPS de l'utilisateur
                   Expanded(flex: 2, child: PanelLocalisation(positionGPS: positionGPS, location: location)),
                 ],
               );

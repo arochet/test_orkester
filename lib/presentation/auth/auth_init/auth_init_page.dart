@@ -77,7 +77,7 @@ class PanelInit extends StatelessWidget {
                     style: Theme.of(context).extension<AppThemeExtention>()?.buttonLarge,
                     child: Row(
                       children: [
-                        Text(AppLocalizations.of(context)!.commencer,
+                        Text('Commencer',
                             style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.black)),
                         Expanded(child: Container(height: 30)),
                         Icon(Icons.arrow_forward),
